@@ -9,8 +9,9 @@ export function parseEasIosBuild(
   expectedProfile: string,
   expectedVersion: string,
 ): IosBuildArtifact | null {
-  if (!Array.isArray(value) || value.length !== 1 || !isRecord(value[0])) return null;
-  const build = value[0];
+  if (!Array.isArray(value) || value.length !== 1) return null;
+  const [build] = value;
+  if (!isRecord(build)) return null;
   if (build.status !== 'FINISHED' || build.platform !== 'IOS') return null;
   if (!isNonEmptyString(build.id) || build.buildProfile !== expectedProfile) return null;
   if (!isRecord(build.fingerprint) || build.fingerprint.hash !== expectedFingerprint) return null;
