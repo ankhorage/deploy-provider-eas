@@ -4,7 +4,8 @@ import type {
   IosBuildRequest,
 } from '@ankhorage/contracts/deploy-provider';
 
-import type { EasProcessRunner } from '../../../../types/process.js';
+import type { EasProcessResult, EasProcessRunner } from '../../../../types/process.js';
+import { parseJson } from '../../../../utils/parseJson.js';
 import { resolveEasProcessEnvironmentAsync } from '../../../../utils/resolveEasProcessEnvironmentAsync.js';
 import { parseEasIosBuild } from '../../utils/parseEasIosBuild.js';
 
@@ -20,7 +21,18 @@ export async function buildIosWithEasAsync(
   });
   if (!environment.ok) return { status: 'action-required', action: environment.action };
 
-  const result = await runProcess({
+  const result = await runIosBuildAsync(request, environment.env, runProcess);
+  if (result.exitCode !== 0) return createIosBuildFailure(result.stderr);
+  return normalizeIosBuildResult(result.stdout, request);
+}
+
+/*** Run the EAS iOS build command with the resolved provider environment. */
+function runIosBuildAsync(
+  request: IosBuildRequest,
+  environment: Readonly<Record<string, string>> | undefined,
+  runProcess: EasProcessRunner,
+): Promise<EasProcessResult> {
+  return runProcess({
     command: 'eas',
     args: [
       'build',
@@ -33,38 +45,46 @@ export async function buildIosWithEasAsync(
       '--wait',
     ],
     cwd: request.projectRoot,
-    ...(environment.env === undefined ? {} : { env: environment.env }),
+    ...(environment === undefined ? {} : { env: environment }),
   });
-  if (result.exitCode !== 0) {
-    const lower = result.stderr.toLowerCase();
-    const signingRequired =
-      lower.includes('provisioning profile') ||
-      lower.includes('distribution certificate') ||
-      lower.includes('credential');
-    return signingRequired
-      ? {
-          status: 'action-required',
-          action: {
-            type: 'manual-action',
-            target: 'ios',
-            provider: 'eas',
-            code: 'EAS_IOS_SIGNING_SETUP_REQUIRED',
-            message: 'iOS signing credentials require EAS account or project setup.',
-          },
-        }
-      : {
-          status: 'failed',
-          failure: {
-            code: 'EAS_IOS_BUILD_FAILED',
-            message: 'EAS iOS build failed.',
-            target: 'ios',
-            provider: 'eas',
-          },
-        };
-  }
+}
 
+/*** Map an EAS iOS build process failure to the provider-neutral result contract. */
+function createIosBuildFailure(stderr: string): DeploymentProviderResult<IosBuildArtifact> {
+  const lower = stderr.toLowerCase();
+  const signingRequired =
+    lower.includes('provisioning profile') ||
+    lower.includes('distribution certificate') ||
+    lower.includes('credential');
+  return signingRequired
+    ? {
+        status: 'action-required',
+        action: {
+          type: 'manual-action',
+          target: 'ios',
+          provider: 'eas',
+          code: 'EAS_IOS_SIGNING_SETUP_REQUIRED',
+          message: 'iOS signing credentials require EAS account or project setup.',
+        },
+      }
+    : {
+        status: 'failed',
+        failure: {
+          code: 'EAS_IOS_BUILD_FAILED',
+          message: 'EAS iOS build failed.',
+          target: 'ios',
+          provider: 'eas',
+        },
+      };
+}
+
+/*** Normalize a successful EAS process result into an iOS build artifact. */
+function normalizeIosBuildResult(
+  stdout: string,
+  request: IosBuildRequest,
+): DeploymentProviderResult<IosBuildArtifact> {
   const artifact = parseEasIosBuild(
-    parseJson(result.stdout),
+    parseJson(stdout),
     request.expectedFingerprint,
     request.buildProfile,
     request.version,
@@ -80,13 +100,4 @@ export async function buildIosWithEasAsync(
         },
       }
     : { status: 'completed', value: artifact };
-}
-
-/*** Parse process JSON output without throwing across the adapter boundary. */
-function parseJson(value: string): unknown {
-  try {
-    return JSON.parse(value) as unknown;
-  } catch {
-    return null;
-  }
 }
