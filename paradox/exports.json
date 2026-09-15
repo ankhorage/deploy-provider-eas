@@ -1,0 +1,27 @@
+[
+  {
+    "name": "createEasDeploymentProvider",
+    "description": "Create the canonical EAS provider registration consumed by the Deploy composition root.",
+    "isReadme": true,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+    "sourceLocation": {
+      "filePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": ["src/deployProviderEas.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "() => DeploymentProviderRegistration",
+        "parameters": [],
+        "returnType": "DeploymentProviderRegistration",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  }
+]

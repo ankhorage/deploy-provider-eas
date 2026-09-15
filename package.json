@@ -29,8 +29,8 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/deployProviderEas.d.ts",
-      "import": "./dist/deployProviderEas.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -60,7 +60,7 @@
     "version-packages": "ankhorage-changeset version"
   },
   "dependencies": {
-    "@ankhorage/contracts": "^19.2.0",
+    "@ankhorage/contracts": "^19.2.2",
     "@ankhorage/utility": "^0.8.0"
   },
   "devDependencies": {

@@ -1,0 +1,1397 @@
+{
+  "packageName": "@ankhorage/deploy-provider-eas",
+  "packageId": "@ankhorage/deploy-provider-eas",
+  "description": "EAS deployment provider for Ankhorage application shipment.",
+  "collaborators": null,
+  "donation": null,
+  "badges": [
+    {
+      "id": "license",
+      "label": "license",
+      "value": "MIT",
+      "color": "2563eb"
+    },
+    {
+      "id": "npm",
+      "label": "npm",
+      "value": "v0.0.0",
+      "color": "cb3837"
+    },
+    {
+      "id": "runtime",
+      "label": "runtime",
+      "value": "bun",
+      "color": "f59e0b"
+    },
+    {
+      "id": "typescript",
+      "label": "typescript",
+      "value": "strict",
+      "color": "2563eb"
+    },
+    {
+      "id": "eslint",
+      "label": "eslint",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "prettier",
+      "label": "prettier",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "build",
+      "label": "build",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "tests",
+      "label": "tests",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "docs",
+      "label": "docs",
+      "value": "paradox",
+      "color": "0f766e"
+    }
+  ],
+  "usage": null,
+  "readmeUsageDescription": null,
+  "readmeUsage": [],
+  "readmeCli": null,
+  "readmeConfig": null,
+  "config": null,
+  "entrypoints": ["src/deployProviderEas.ts"],
+  "modules": [
+    {
+      "path": "paradox.config.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["default"]
+    },
+    {
+      "path": "src/deployProviderEas.test.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/deployProviderEas.ts"],
+      "exports": []
+    },
+    {
+      "path": "src/deployProviderEas.ts",
+      "isEntrypoint": true,
+      "dependencies": [],
+      "exports": ["createEasDeploymentProvider"]
+    },
+    {
+      "path": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+        "src/types/process.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
+        "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+        "src/types/process.ts"
+      ],
+      "exports": ["createEasAndroidBuilder"]
+    },
+    {
+      "path": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/android-build/utils/parseEasAndroidBuild.ts",
+        "src/types/process.ts",
+        "src/utils/resolveEasProcessEnvironmentAsync.ts"
+      ],
+      "exports": ["buildAndroidWithEasAsync"]
+    },
+    {
+      "path": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/android-build/utils/parseEasAndroidConfig.ts",
+        "src/types/process.ts",
+        "src/utils/resolveEasProcessEnvironmentAsync.ts"
+      ],
+      "exports": ["inspectEasAndroidBuildAsync"]
+    },
+    {
+      "path": "src/features/android-build/utils/parseEasAndroidBuild.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["parseEasAndroidBuild"]
+    },
+    {
+      "path": "src/features/android-build/utils/parseEasAndroidConfig.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types/android.ts"],
+      "exports": ["parseEasAndroidConfig"]
+    },
+    {
+      "path": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+        "src/types/process.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
+        "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+        "src/types/process.ts"
+      ],
+      "exports": ["createEasIosBuilder"]
+    },
+    {
+      "path": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/ios-build/utils/parseEasIosBuild.ts",
+        "src/types/process.ts",
+        "src/utils/resolveEasProcessEnvironmentAsync.ts"
+      ],
+      "exports": ["buildIosWithEasAsync"]
+    },
+    {
+      "path": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/ios-build/utils/parseEasIosConfig.ts",
+        "src/types/process.ts",
+        "src/utils/resolveEasProcessEnvironmentAsync.ts"
+      ],
+      "exports": ["inspectEasIosBuildAsync"]
+    },
+    {
+      "path": "src/features/ios-build/utils/parseEasIosBuild.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["parseEasIosBuild"]
+    },
+    {
+      "path": "src/features/ios-build/utils/parseEasIosConfig.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types/ios.ts"],
+      "exports": ["parseEasIosConfig"]
+    },
+    {
+      "path": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+        "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+        "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+        "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "src/utils/runEasProcessAsync.ts"
+      ],
+      "exports": ["createEasDeploymentProvider"]
+    },
+    {
+      "path": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+        "src/types/process.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types/process.ts", "src/utils/resolveEasProcessEnvironmentAsync.ts"],
+      "exports": ["createEasSetupAdapter"]
+    },
+    {
+      "path": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "src/types/process.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/web-publication/utils/parseEasWebPublication.ts",
+        "src/types/process.ts",
+        "src/utils/resolveEasProcessEnvironmentAsync.ts"
+      ],
+      "exports": ["createEasWebPublisher"]
+    },
+    {
+      "path": "src/features/web-publication/utils/parseEasWebPublication.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["parseEasWebPublication"]
+    },
+    {
+      "path": "src/types/android.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["EasAndroidConfigSnapshot"]
+    },
+    {
+      "path": "src/types/ios.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["EasIosConfigSnapshot"]
+    },
+    {
+      "path": "src/types/process.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["EasProcessRequest", "EasProcessResult", "EasProcessRunner"]
+    },
+    {
+      "path": "src/utils/resolveEasProcessEnvironmentAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["EasProcessEnvironmentResult", "resolveEasProcessEnvironmentAsync"]
+    },
+    {
+      "path": "src/utils/runEasProcessAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types/process.ts"],
+      "exports": ["runEasProcessAsync"]
+    }
+  ],
+  "exports": [
+    {
+      "name": "createEasDeploymentProvider",
+      "description": "Create the canonical EAS provider registration consumed by the Deploy composition root.",
+      "isReadme": true,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+      "sourceLocation": {
+        "filePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+        "line": 14,
+        "column": 1
+      },
+      "exportPaths": ["src/deployProviderEas.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "() => DeploymentProviderRegistration",
+          "parameters": [],
+          "returnType": "DeploymentProviderRegistration",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    }
+  ],
+  "components": [],
+  "sourceFunctions": [
+    {
+      "name": "androidConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "runProcess",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
+        "line": 21,
+        "column": 9
+      }
+    },
+    {
+      "name": "createEasAndroidBuilder",
+      "description": "Create the EAS Android builder implementing the provider-neutral build port.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "buildAndroidWithEasAsync",
+      "description": "Run one non-interactive EAS Android build and normalize its finished artifact.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseJson",
+      "description": "Parse process JSON output without throwing across the adapter boundary.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
+        "line": 83,
+        "column": 1
+      }
+    },
+    {
+      "name": "inspectEasAndroidBuildAsync",
+      "description": "Inspect EAS Android config and produce the local project fingerprint used to gate builds.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseJson",
+      "description": "Parse process JSON output without throwing across the adapter boundary.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+        "line": 102,
+        "column": 1
+      }
+    },
+    {
+      "name": "isFingerprintResult",
+      "description": "Validate one Expo fingerprint result.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+        "line": 111,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseEasAndroidBuild",
+      "description": "Normalize one finished EAS Android build into the provider-neutral artifact contract.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/utils/parseEasAndroidBuild.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseVersionCode",
+      "description": "Parse a positive Android version code from EAS output.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/utils/parseEasAndroidBuild.ts",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "name": "isHttpUrl",
+      "description": "Validate one HTTP(S) artifact URL returned by EAS.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/utils/parseEasAndroidBuild.ts",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseEasAndroidConfig",
+      "description": "Validate EAS Android config output for package identity, store readiness, and profile environment.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/utils/parseEasAndroidConfig.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStoreProfile",
+      "description": "Check whether an EAS Android build profile produces a credentialed store artifact.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/utils/parseEasAndroidConfig.ts",
+        "line": 43,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeEnvironment",
+      "description": "Normalize EAS profile environment values while rejecting non-string entries.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/utils/parseEasAndroidConfig.ts",
+        "line": 56,
+        "column": 1
+      }
+    },
+    {
+      "name": "failure",
+      "description": "Build one provider-neutral Android config failure.",
+      "sourceLocation": {
+        "filePath": "src/features/android-build/utils/parseEasAndroidConfig.ts",
+        "line": 67,
+        "column": 1
+      }
+    },
+    {
+      "name": "iosConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "runProcess",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
+        "line": 21,
+        "column": 9
+      }
+    },
+    {
+      "name": "createEasIosBuilder",
+      "description": "Create the EAS iOS builder implementing the provider-neutral build port.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "buildIosWithEasAsync",
+      "description": "Run one non-interactive EAS iOS build and normalize its finished artifact.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseJson",
+      "description": "Parse process JSON output without throwing across the adapter boundary.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
+        "line": 86,
+        "column": 1
+      }
+    },
+    {
+      "name": "inspectEasIosBuildAsync",
+      "description": "Inspect EAS iOS config and produce the local project fingerprint used to gate builds.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+        "line": 24,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseJson",
+      "description": "Parse process JSON output without throwing across the adapter boundary.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+        "line": 99,
+        "column": 1
+      }
+    },
+    {
+      "name": "isFingerprintResult",
+      "description": "Validate one Expo fingerprint result.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+        "line": 108,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseEasIosBuild",
+      "description": "Normalize one finished EAS iOS build into the provider-neutral artifact contract.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/utils/parseEasIosBuild.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "isHttpUrl",
+      "description": "Validate one HTTP(S) artifact URL returned by EAS.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/utils/parseEasIosBuild.ts",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseEasIosConfig",
+      "description": "Validate EAS iOS config output for bundle identity, store readiness, and profile environment.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/utils/parseEasIosConfig.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "isStoreProfile",
+      "description": "Check whether an EAS iOS build profile produces a credentialed App Store artifact.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/utils/parseEasIosConfig.ts",
+        "line": 40,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeEnvironment",
+      "description": "Normalize EAS profile environment values while rejecting non-string entries.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/utils/parseEasIosConfig.ts",
+        "line": 50,
+        "column": 1
+      }
+    },
+    {
+      "name": "failure",
+      "description": "Build one provider-neutral iOS config failure.",
+      "sourceLocation": {
+        "filePath": "src/features/ios-build/utils/parseEasIosConfig.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "createEasDeploymentProvider",
+      "description": "Create the canonical EAS provider registration consumed by the Deploy composition root.",
+      "sourceLocation": {
+        "filePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "name": "runProcess",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts",
+        "line": 10,
+        "column": 9
+      }
+    },
+    {
+      "name": "createEasSetupAdapter",
+      "description": "Create the EAS setup adapter used by Deploy to inspect authentication and project linkage.",
+      "sourceLocation": {
+        "filePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "name": "createCapabilityStates",
+      "description": "Map an optional deployment target to the EAS capabilities that setup inspection unlocks.",
+      "sourceLocation": {
+        "filePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+        "line": 106,
+        "column": 1
+      }
+    },
+    {
+      "name": "runProcess",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts",
+        "line": 10,
+        "column": 9
+      }
+    },
+    {
+      "name": "createEasWebPublisher",
+      "description": "Create the EAS Hosting publisher implementing the provider-neutral web publication port.",
+      "sourceLocation": {
+        "filePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseJson",
+      "description": "Parse provider JSON output without throwing across the adapter boundary.",
+      "sourceLocation": {
+        "filePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "line": 85,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseEasWebPublication",
+      "description": "Normalize one EAS Hosting JSON payload into the provider-neutral web publication contract.",
+      "sourceLocation": {
+        "filePath": "src/features/web-publication/utils/parseEasWebPublication.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "isHttpUrl",
+      "description": "Validate one HTTP(S) URL returned by EAS Hosting.",
+      "sourceLocation": {
+        "filePath": "src/features/web-publication/utils/parseEasWebPublication.ts",
+        "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveEasProcessEnvironmentAsync",
+      "description": "Resolve an optional EAS token credential into a child-process environment without leaking it.",
+      "sourceLocation": {
+        "filePath": "src/utils/resolveEasProcessEnvironmentAsync.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "runEasProcessAsync",
+      "description": "Execute one provider-owned process and capture stdout, stderr, and its exit code.",
+      "sourceLocation": {
+        "filePath": "src/utils/runEasProcessAsync.ts",
+        "line": 6,
+        "column": 14
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "createEasDeploymentProvider",
+      "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+      "symbolName": "createEasDeploymentProvider",
+      "description": "Create the canonical EAS provider registration consumed by the Deploy composition root.",
+      "isReadme": true
+    }
+  ],
+  "graphs": {
+    "imports": [
+      {
+        "fromPath": "src/deployProviderEas.test.ts",
+        "toPath": "src/deployProviderEas.ts",
+        "sourcePath": "src/deployProviderEas.test.ts"
+      },
+      {
+        "fromPath": "src/deployProviderEas.ts",
+        "toPath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+        "sourcePath": "src/deployProviderEas.ts"
+      },
+      {
+        "fromPath": "src/utils/runEasProcessAsync.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/utils/runEasProcessAsync.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/utils/parseEasAndroidConfig.ts",
+        "toPath": "src/types/android.ts",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidConfig.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/utils/parseEasIosConfig.ts",
+        "toPath": "src/types/ios.ts",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosConfig.ts"
+      },
+      {
+        "fromPath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+        "toPath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromPath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+        "toPath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromPath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+        "toPath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromPath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+        "toPath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromPath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
+        "toPath": "src/utils/runEasProcessAsync.ts",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
+        "toPath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+        "toPath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts",
+        "toPath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
+        "toPath": "src/utils/resolveEasProcessEnvironmentAsync.ts",
+        "sourcePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
+        "toPath": "src/features/android-build/utils/parseEasAndroidBuild.ts",
+        "sourcePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+        "toPath": "src/utils/resolveEasProcessEnvironmentAsync.ts",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromPath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
+        "toPath": "src/features/android-build/utils/parseEasAndroidConfig.ts",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
+        "toPath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+        "toPath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts",
+        "toPath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
+        "toPath": "src/utils/resolveEasProcessEnvironmentAsync.ts",
+        "sourcePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
+        "toPath": "src/features/ios-build/utils/parseEasIosBuild.ts",
+        "sourcePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+        "toPath": "src/utils/resolveEasProcessEnvironmentAsync.ts",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromPath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
+        "toPath": "src/features/ios-build/utils/parseEasIosConfig.ts",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromPath": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts"
+      },
+      {
+        "fromPath": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts",
+        "toPath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts"
+      },
+      {
+        "fromPath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
+        "toPath": "src/utils/resolveEasProcessEnvironmentAsync.ts",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts"
+      },
+      {
+        "fromPath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts",
+        "toPath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts"
+      },
+      {
+        "fromPath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "toPath": "src/types/process.ts",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+      },
+      {
+        "fromPath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "toPath": "src/utils/resolveEasProcessEnvironmentAsync.ts",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+      },
+      {
+        "fromPath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
+        "toPath": "src/features/web-publication/utils/parseEasWebPublication.ts",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+      }
+    ],
+    "calls": [
+      {
+        "fromSymbol": "paradox.config.ts",
+        "toSymbol": "defineParadoxConfig",
+        "callExpression": "defineParadoxConfig",
+        "sourcePath": "paradox.config.ts"
+      },
+      {
+        "fromSymbol": "src/deployProviderEas.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/deployProviderEas.test.ts"
+      },
+      {
+        "fromSymbol": "src/deployProviderEas.test.ts",
+        "toSymbol": "it",
+        "callExpression": "it",
+        "sourcePath": "src/deployProviderEas.test.ts"
+      },
+      {
+        "fromSymbol": "src/deployProviderEas.test.ts",
+        "toSymbol": "createEasDeploymentProvider",
+        "callExpression": "createEasDeploymentProvider",
+        "sourcePath": "src/deployProviderEas.test.ts"
+      },
+      {
+        "fromSymbol": "src/deployProviderEas.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/deployProviderEas.test.ts"
+      },
+      {
+        "fromSymbol": "resolveEasProcessEnvironmentAsync",
+        "toSymbol": "resolveSecret",
+        "callExpression": "options.resolveSecret",
+        "sourcePath": "src/utils/resolveEasProcessEnvironmentAsync.ts"
+      },
+      {
+        "fromSymbol": "src/utils/runEasProcessAsync.ts",
+        "toSymbol": "spawn",
+        "callExpression": "spawn",
+        "sourcePath": "src/utils/runEasProcessAsync.ts"
+      },
+      {
+        "fromSymbol": "src/utils/runEasProcessAsync.ts",
+        "toSymbol": "resolve",
+        "callExpression": "resolve",
+        "sourcePath": "src/utils/runEasProcessAsync.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidBuild",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidBuild.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidBuild",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidBuild.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidBuild",
+        "toSymbol": "isHttpUrl",
+        "callExpression": "isHttpUrl",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidBuild.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidBuild",
+        "toSymbol": "parseVersionCode",
+        "callExpression": "parseVersionCode",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidBuild.ts"
+      },
+      {
+        "fromSymbol": "isHttpUrl",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidBuild.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidConfig",
+        "toSymbol": "failure",
+        "callExpression": "failure",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidConfig",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidConfig",
+        "toSymbol": "isStoreProfile",
+        "callExpression": "isStoreProfile",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasAndroidConfig",
+        "toSymbol": "normalizeEnvironment",
+        "callExpression": "normalizeEnvironment",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidConfig.ts"
+      },
+      {
+        "fromSymbol": "isStoreProfile",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidConfig.ts"
+      },
+      {
+        "fromSymbol": "normalizeEnvironment",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/android-build/utils/parseEasAndroidConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasIosBuild",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosBuild.ts"
+      },
+      {
+        "fromSymbol": "parseEasIosBuild",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosBuild.ts"
+      },
+      {
+        "fromSymbol": "parseEasIosBuild",
+        "toSymbol": "isHttpUrl",
+        "callExpression": "isHttpUrl",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosBuild.ts"
+      },
+      {
+        "fromSymbol": "isHttpUrl",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosBuild.ts"
+      },
+      {
+        "fromSymbol": "parseEasIosConfig",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasIosConfig",
+        "toSymbol": "failure",
+        "callExpression": "failure",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasIosConfig",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasIosConfig",
+        "toSymbol": "isStoreProfile",
+        "callExpression": "isStoreProfile",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosConfig.ts"
+      },
+      {
+        "fromSymbol": "parseEasIosConfig",
+        "toSymbol": "normalizeEnvironment",
+        "callExpression": "normalizeEnvironment",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosConfig.ts"
+      },
+      {
+        "fromSymbol": "isStoreProfile",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosConfig.ts"
+      },
+      {
+        "fromSymbol": "normalizeEnvironment",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/ios-build/utils/parseEasIosConfig.ts"
+      },
+      {
+        "fromSymbol": "createEasDeploymentProvider",
+        "toSymbol": "createEasSetupAdapter",
+        "callExpression": "createEasSetupAdapter",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromSymbol": "createEasDeploymentProvider",
+        "toSymbol": "createEasWebPublisher",
+        "callExpression": "createEasWebPublisher",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromSymbol": "createEasDeploymentProvider",
+        "toSymbol": "createEasAndroidBuilder",
+        "callExpression": "createEasAndroidBuilder",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromSymbol": "createEasDeploymentProvider",
+        "toSymbol": "createEasIosBuilder",
+        "callExpression": "createEasIosBuilder",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      },
+      {
+        "fromSymbol": "parseEasWebPublication",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/web-publication/utils/parseEasWebPublication.ts"
+      },
+      {
+        "fromSymbol": "parseEasWebPublication",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/web-publication/utils/parseEasWebPublication.ts"
+      },
+      {
+        "fromSymbol": "parseEasWebPublication",
+        "toSymbol": "isHttpUrl",
+        "callExpression": "isHttpUrl",
+        "sourcePath": "src/features/web-publication/utils/parseEasWebPublication.ts"
+      },
+      {
+        "fromSymbol": "isHttpUrl",
+        "toSymbol": "isNonEmptyString",
+        "callExpression": "isNonEmptyString",
+        "sourcePath": "src/features/web-publication/utils/parseEasWebPublication.ts"
+      },
+      {
+        "fromSymbol": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts"
+      },
+      {
+        "fromSymbol": "runProcess",
+        "toSymbol": "androidConfig",
+        "callExpression": "androidConfig",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
+        "toSymbol": "createEasAndroidBuilder",
+        "callExpression": "createEasAndroidBuilder",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "inspectEasAndroidBuildAsync",
+        "callExpression": "inspectEasAndroidBuildAsync",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts"
+      },
+      {
+        "fromSymbol": "buildAsync",
+        "toSymbol": "buildAndroidWithEasAsync",
+        "callExpression": "buildAndroidWithEasAsync",
+        "sourcePath": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts"
+      },
+      {
+        "fromSymbol": "buildAndroidWithEasAsync",
+        "toSymbol": "resolveEasProcessEnvironmentAsync",
+        "callExpression": "resolveEasProcessEnvironmentAsync",
+        "sourcePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+      },
+      {
+        "fromSymbol": "buildAndroidWithEasAsync",
+        "toSymbol": "runProcess",
+        "callExpression": "runProcess",
+        "sourcePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+      },
+      {
+        "fromSymbol": "buildAndroidWithEasAsync",
+        "toSymbol": "parseEasAndroidBuild",
+        "callExpression": "parseEasAndroidBuild",
+        "sourcePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+      },
+      {
+        "fromSymbol": "buildAndroidWithEasAsync",
+        "toSymbol": "parseJson",
+        "callExpression": "parseJson",
+        "sourcePath": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasAndroidBuildAsync",
+        "toSymbol": "resolveEasProcessEnvironmentAsync",
+        "callExpression": "resolveEasProcessEnvironmentAsync",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasAndroidBuildAsync",
+        "toSymbol": "runProcess",
+        "callExpression": "runProcess",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasAndroidBuildAsync",
+        "toSymbol": "parseEasAndroidConfig",
+        "callExpression": "parseEasAndroidConfig",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasAndroidBuildAsync",
+        "toSymbol": "parseJson",
+        "callExpression": "parseJson",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasAndroidBuildAsync",
+        "toSymbol": "isFingerprintResult",
+        "callExpression": "isFingerprintResult",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "isFingerprintResult",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts"
+      },
+      {
+        "fromSymbol": "runProcess",
+        "toSymbol": "iosConfig",
+        "callExpression": "iosConfig",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
+        "toSymbol": "createEasIosBuilder",
+        "callExpression": "createEasIosBuilder",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts"
+      },
+      {
+        "fromSymbol": "inspectAsync",
+        "toSymbol": "inspectEasIosBuildAsync",
+        "callExpression": "inspectEasIosBuildAsync",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts"
+      },
+      {
+        "fromSymbol": "buildAsync",
+        "toSymbol": "buildIosWithEasAsync",
+        "callExpression": "buildIosWithEasAsync",
+        "sourcePath": "src/features/ios-build/adapters/outbound/createEasIosBuilder.ts"
+      },
+      {
+        "fromSymbol": "buildIosWithEasAsync",
+        "toSymbol": "resolveEasProcessEnvironmentAsync",
+        "callExpression": "resolveEasProcessEnvironmentAsync",
+        "sourcePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+      },
+      {
+        "fromSymbol": "buildIosWithEasAsync",
+        "toSymbol": "runProcess",
+        "callExpression": "runProcess",
+        "sourcePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+      },
+      {
+        "fromSymbol": "buildIosWithEasAsync",
+        "toSymbol": "parseEasIosBuild",
+        "callExpression": "parseEasIosBuild",
+        "sourcePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+      },
+      {
+        "fromSymbol": "buildIosWithEasAsync",
+        "toSymbol": "parseJson",
+        "callExpression": "parseJson",
+        "sourcePath": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasIosBuildAsync",
+        "toSymbol": "resolveEasProcessEnvironmentAsync",
+        "callExpression": "resolveEasProcessEnvironmentAsync",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasIosBuildAsync",
+        "toSymbol": "runProcess",
+        "callExpression": "runProcess",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasIosBuildAsync",
+        "toSymbol": "parseEasIosConfig",
+        "callExpression": "parseEasIosConfig",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasIosBuildAsync",
+        "toSymbol": "parseJson",
+        "callExpression": "parseJson",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "inspectEasIosBuildAsync",
+        "toSymbol": "isFingerprintResult",
+        "callExpression": "isFingerprintResult",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "isFingerprintResult",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+      },
+      {
+        "fromSymbol": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts",
+        "toSymbol": "createEasSetupAdapter",
+        "callExpression": "createEasSetupAdapter",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts"
+      },
+      {
+        "fromSymbol": "inspectSetup",
+        "toSymbol": "resolveEasProcessEnvironmentAsync",
+        "callExpression": "resolveEasProcessEnvironmentAsync",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts"
+      },
+      {
+        "fromSymbol": "inspectSetup",
+        "toSymbol": "createCapabilityStates",
+        "callExpression": "createCapabilityStates",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts"
+      },
+      {
+        "fromSymbol": "inspectSetup",
+        "toSymbol": "runProcess",
+        "callExpression": "runProcess",
+        "sourcePath": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts"
+      },
+      {
+        "fromSymbol": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts",
+        "toSymbol": "createEasWebPublisher",
+        "callExpression": "createEasWebPublisher",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts"
+      },
+      {
+        "fromSymbol": "publishAsync",
+        "toSymbol": "resolveEasProcessEnvironmentAsync",
+        "callExpression": "resolveEasProcessEnvironmentAsync",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+      },
+      {
+        "fromSymbol": "publishAsync",
+        "toSymbol": "runProcess",
+        "callExpression": "runProcess",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+      },
+      {
+        "fromSymbol": "publishAsync",
+        "toSymbol": "parseJson",
+        "callExpression": "parseJson",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+      },
+      {
+        "fromSymbol": "publishAsync",
+        "toSymbol": "parseEasWebPublication",
+        "callExpression": "parseEasWebPublication",
+        "sourcePath": "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+      }
+    ],
+    "typeReferences": [
+      {
+        "fromSymbol": "createEasDeploymentProvider",
+        "toType": "DeploymentProviderRegistration",
+        "sourcePath": "src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+      }
+    ],
+    "componentComposition": []
+  }
+}
