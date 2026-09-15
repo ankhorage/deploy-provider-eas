@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import { createEasDeploymentProvider } from './deployProviderEas.js';
+import { createEasDeploymentProvider } from './index.js';
 
 describe('createEasDeploymentProvider', () => {
   it('registers the EAS shipment capabilities without a Deploy dependency', () => {
