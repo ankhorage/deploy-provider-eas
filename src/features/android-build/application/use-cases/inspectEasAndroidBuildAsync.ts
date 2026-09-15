@@ -5,7 +5,9 @@ import type {
 } from '@ankhorage/contracts/deploy-provider';
 import { isRecord } from '@ankhorage/utility/object';
 
+import type { EasAndroidConfigSnapshot } from '../../../../types/android.js';
 import type { EasProcessRunner } from '../../../../types/process.js';
+import { parseJson } from '../../../../utils/parseJson.js';
 import { resolveEasProcessEnvironmentAsync } from '../../../../utils/resolveEasProcessEnvironmentAsync.js';
 import { parseEasAndroidConfig } from '../../utils/parseEasAndroidConfig.js';
 
@@ -28,17 +30,7 @@ export async function inspectEasAndroidBuildAsync(
   request: AndroidBuildInspectionRequest,
   runProcess: EasProcessRunner,
 ): Promise<DeploymentProviderResult<AndroidBuildInspection>> {
-  if (request.buildProfile.trim().length === 0) {
-    return {
-      status: 'failed',
-      failure: {
-        code: 'INVALID_ANDROID_BUILD_PROFILE',
-        message: 'Android build profile is invalid.',
-        target: 'android',
-        provider: 'eas',
-      },
-    };
-  }
+  if (request.buildProfile.trim().length === 0) return invalidAndroidBuildProfile();
 
   const environment = await resolveEasProcessEnvironmentAsync({
     target: 'android',
@@ -47,7 +39,22 @@ export async function inspectEasAndroidBuildAsync(
   });
   if (!environment.ok) return { status: 'action-required', action: environment.action };
 
-  const configProcess = await runProcess({
+  const config = await inspectAndroidConfigAsync(request, environment.env, runProcess);
+  if (config.status !== 'completed') return config;
+  return inspectAndroidFingerprintAsync(
+    request.projectRoot,
+    config.value.profileEnvironment,
+    runProcess,
+  );
+}
+
+/*** Inspect the EAS Android config for the requested build profile. */
+async function inspectAndroidConfigAsync(
+  request: AndroidBuildInspectionRequest,
+  environment: Readonly<Record<string, string>> | undefined,
+  runProcess: EasProcessRunner,
+): Promise<DeploymentProviderResult<EasAndroidConfigSnapshot>> {
+  const result = await runProcess({
     command: 'eas',
     args: [
       'config',
@@ -59,52 +66,51 @@ export async function inspectEasAndroidBuildAsync(
       '--non-interactive',
     ],
     cwd: request.projectRoot,
-    ...(environment.env === undefined ? {} : { env: environment.env }),
+    ...(environment === undefined ? {} : { env: environment }),
   });
-  if (configProcess.exitCode !== 0) {
-    return {
-      status: 'failed',
-      failure: {
-        code: 'EAS_ANDROID_CONFIG_FAILED',
-        message: 'EAS Android project configuration could not be inspected.',
-        target: 'android',
-        provider: 'eas',
-      },
-    };
-  }
-
-  const config = parseEasAndroidConfig(parseJson(configProcess.stdout), request.packageName);
-  if (config.status !== 'completed') return config;
-
-  const fingerprintProcess = await runProcess({
-    command: 'node',
-    args: ['--input-type=module', '--eval', FINGERPRINT_SCRIPT],
-    cwd: request.projectRoot,
-    env: config.value.profileEnvironment,
-  });
-  const fingerprint = parseJson(fingerprintProcess.stdout);
-  if (fingerprintProcess.exitCode !== 0 || !isFingerprintResult(fingerprint)) {
-    return {
-      status: 'failed',
-      failure: {
-        code: 'ANDROID_FINGERPRINT_FAILED',
-        message: 'Android project fingerprint could not be generated.',
-        target: 'android',
-        provider: 'eas',
-      },
-    };
-  }
-
-  return { status: 'completed', value: { fingerprint: fingerprint.hash } };
+  return result.exitCode === 0
+    ? parseEasAndroidConfig(parseJson(result.stdout), request.packageName)
+    : androidInspectionFailure(
+        'EAS_ANDROID_CONFIG_FAILED',
+        'EAS Android project configuration could not be inspected.',
+      );
 }
 
-/*** Parse process JSON output without throwing across the adapter boundary. */
-function parseJson(value: string): unknown {
-  try {
-    return JSON.parse(value) as unknown;
-  } catch {
-    return null;
-  }
+/*** Generate the local Android project fingerprint used to gate builds. */
+async function inspectAndroidFingerprintAsync(
+  projectRoot: string,
+  environment: Readonly<Record<string, string>>,
+  runProcess: EasProcessRunner,
+): Promise<DeploymentProviderResult<AndroidBuildInspection>> {
+  const result = await runProcess({
+    command: 'node',
+    args: ['--input-type=module', '--eval', FINGERPRINT_SCRIPT],
+    cwd: projectRoot,
+    env: environment,
+  });
+  const fingerprint = parseJson(result.stdout);
+  return result.exitCode === 0 && isFingerprintResult(fingerprint)
+    ? { status: 'completed', value: { fingerprint: fingerprint.hash } }
+    : androidInspectionFailure(
+        'ANDROID_FINGERPRINT_FAILED',
+        'Android project fingerprint could not be generated.',
+      );
+}
+
+/*** Build the invalid-profile result before invoking EAS. */
+function invalidAndroidBuildProfile(): DeploymentProviderResult<AndroidBuildInspection> {
+  return androidInspectionFailure('INVALID_ANDROID_BUILD_PROFILE', 'Android build profile is invalid.');
+}
+
+/*** Build one provider-neutral Android inspection failure. */
+function androidInspectionFailure<T>(
+  code: string,
+  message: string,
+): DeploymentProviderResult<T> {
+  return {
+    status: 'failed',
+    failure: { code, message, target: 'android', provider: 'eas' },
+  };
 }
 
 /*** Validate one Expo fingerprint result. */
