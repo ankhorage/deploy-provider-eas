@@ -5,7 +5,9 @@ import type {
 } from '@ankhorage/contracts/deploy-provider';
 import { isRecord } from '@ankhorage/utility/object';
 
+import type { EasIosConfigSnapshot } from '../../../../types/ios.js';
 import type { EasProcessRunner } from '../../../../types/process.js';
+import { parseJson } from '../../../../utils/parseJson.js';
 import { resolveEasProcessEnvironmentAsync } from '../../../../utils/resolveEasProcessEnvironmentAsync.js';
 import { parseEasIosConfig } from '../../utils/parseEasIosConfig.js';
 
@@ -25,17 +27,7 @@ export async function inspectEasIosBuildAsync(
   request: IosBuildInspectionRequest,
   runProcess: EasProcessRunner,
 ): Promise<DeploymentProviderResult<IosBuildInspection>> {
-  if (request.buildProfile.trim().length === 0) {
-    return {
-      status: 'failed',
-      failure: {
-        code: 'INVALID_IOS_BUILD_PROFILE',
-        message: 'iOS build profile is invalid.',
-        target: 'ios',
-        provider: 'eas',
-      },
-    };
-  }
+  if (request.buildProfile.trim().length === 0) return invalidIosBuildProfile();
 
   const environment = await resolveEasProcessEnvironmentAsync({
     target: 'ios',
@@ -44,7 +36,22 @@ export async function inspectEasIosBuildAsync(
   });
   if (!environment.ok) return { status: 'action-required', action: environment.action };
 
-  const configProcess = await runProcess({
+  const config = await inspectIosConfigAsync(request, environment.env, runProcess);
+  if (config.status !== 'completed') return config;
+  return inspectIosFingerprintAsync(
+    request.projectRoot,
+    config.value.profileEnvironment,
+    runProcess,
+  );
+}
+
+/*** Inspect the EAS iOS config for the requested build profile. */
+async function inspectIosConfigAsync(
+  request: IosBuildInspectionRequest,
+  environment: Readonly<Record<string, string>> | undefined,
+  runProcess: EasProcessRunner,
+): Promise<DeploymentProviderResult<EasIosConfigSnapshot>> {
+  const result = await runProcess({
     command: 'eas',
     args: [
       'config',
@@ -56,52 +63,48 @@ export async function inspectEasIosBuildAsync(
       '--non-interactive',
     ],
     cwd: request.projectRoot,
-    ...(environment.env === undefined ? {} : { env: environment.env }),
+    ...(environment === undefined ? {} : { env: environment }),
   });
-  if (configProcess.exitCode !== 0) {
-    return {
-      status: 'failed',
-      failure: {
-        code: 'EAS_IOS_CONFIG_FAILED',
-        message: 'EAS iOS project configuration could not be inspected.',
-        target: 'ios',
-        provider: 'eas',
-      },
-    };
-  }
-
-  const config = parseEasIosConfig(parseJson(configProcess.stdout), request.bundleIdentifier);
-  if (config.status !== 'completed') return config;
-
-  const fingerprintProcess = await runProcess({
-    command: 'node',
-    args: ['--input-type=module', '--eval', FINGERPRINT_SCRIPT],
-    cwd: request.projectRoot,
-    env: config.value.profileEnvironment,
-  });
-  const fingerprint = parseJson(fingerprintProcess.stdout);
-  if (fingerprintProcess.exitCode !== 0 || !isFingerprintResult(fingerprint)) {
-    return {
-      status: 'failed',
-      failure: {
-        code: 'IOS_FINGERPRINT_FAILED',
-        message: 'iOS project fingerprint could not be generated.',
-        target: 'ios',
-        provider: 'eas',
-      },
-    };
-  }
-
-  return { status: 'completed', value: { fingerprint: fingerprint.hash } };
+  return result.exitCode === 0
+    ? parseEasIosConfig(parseJson(result.stdout), request.bundleIdentifier)
+    : iosInspectionFailure(
+        'EAS_IOS_CONFIG_FAILED',
+        'EAS iOS project configuration could not be inspected.',
+      );
 }
 
-/*** Parse process JSON output without throwing across the adapter boundary. */
-function parseJson(value: string): unknown {
-  try {
-    return JSON.parse(value) as unknown;
-  } catch {
-    return null;
-  }
+/*** Generate the local iOS project fingerprint used to gate builds. */
+async function inspectIosFingerprintAsync(
+  projectRoot: string,
+  environment: Readonly<Record<string, string>>,
+  runProcess: EasProcessRunner,
+): Promise<DeploymentProviderResult<IosBuildInspection>> {
+  const result = await runProcess({
+    command: 'node',
+    args: ['--input-type=module', '--eval', FINGERPRINT_SCRIPT],
+    cwd: projectRoot,
+    env: environment,
+  });
+  const fingerprint = parseJson(result.stdout);
+  return result.exitCode === 0 && isFingerprintResult(fingerprint)
+    ? { status: 'completed', value: { fingerprint: fingerprint.hash } }
+    : iosInspectionFailure(
+        'IOS_FINGERPRINT_FAILED',
+        'iOS project fingerprint could not be generated.',
+      );
+}
+
+/*** Build the invalid-profile result before invoking EAS. */
+function invalidIosBuildProfile(): DeploymentProviderResult<IosBuildInspection> {
+  return iosInspectionFailure('INVALID_IOS_BUILD_PROFILE', 'iOS build profile is invalid.');
+}
+
+/*** Build one provider-neutral iOS inspection failure. */
+function iosInspectionFailure<T>(code: string, message: string): DeploymentProviderResult<T> {
+  return {
+    status: 'failed',
+    failure: { code, message, target: 'ios', provider: 'eas' },
+  };
 }
 
 /*** Validate one Expo fingerprint result. */
