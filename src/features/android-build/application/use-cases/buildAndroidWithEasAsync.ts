@@ -4,7 +4,8 @@ import type {
   DeploymentProviderResult,
 } from '@ankhorage/contracts/deploy-provider';
 
-import type { EasProcessRunner } from '../../../../types/process.js';
+import type { EasProcessResult, EasProcessRunner } from '../../../../types/process.js';
+import { parseJson } from '../../../../utils/parseJson.js';
 import { resolveEasProcessEnvironmentAsync } from '../../../../utils/resolveEasProcessEnvironmentAsync.js';
 import { parseEasAndroidBuild } from '../../utils/parseEasAndroidBuild.js';
 
@@ -20,7 +21,18 @@ export async function buildAndroidWithEasAsync(
   });
   if (!environment.ok) return { status: 'action-required', action: environment.action };
 
-  const result = await runProcess({
+  const result = await runAndroidBuildAsync(request, environment.env, runProcess);
+  if (result.exitCode !== 0) return createAndroidBuildFailure(result.stderr);
+  return normalizeAndroidBuildResult(result.stdout, request);
+}
+
+/*** Run the EAS Android build command with the resolved provider environment. */
+function runAndroidBuildAsync(
+  request: AndroidBuildRequest,
+  environment: Readonly<Record<string, string>> | undefined,
+  runProcess: EasProcessRunner,
+): Promise<EasProcessResult> {
+  return runProcess({
     command: 'eas',
     args: [
       'build',
@@ -33,36 +45,45 @@ export async function buildAndroidWithEasAsync(
       '--wait',
     ],
     cwd: request.projectRoot,
-    ...(environment.env === undefined ? {} : { env: environment.env }),
+    ...(environment === undefined ? {} : { env: environment }),
   });
-  if (result.exitCode !== 0) {
-    const signingRequired =
-      result.stderr.toLowerCase().includes('keystore') ||
-      result.stderr.toLowerCase().includes('credential');
-    return signingRequired
-      ? {
-          status: 'action-required',
-          action: {
-            type: 'manual-action',
-            target: 'android',
-            provider: 'eas',
-            code: 'EAS_ANDROID_SIGNING_SETUP_REQUIRED',
-            message: 'Android signing credentials require EAS account or project setup.',
-          },
-        }
-      : {
-          status: 'failed',
-          failure: {
-            code: 'EAS_ANDROID_BUILD_FAILED',
-            message: 'EAS Android build failed.',
-            target: 'android',
-            provider: 'eas',
-          },
-        };
-  }
+}
 
+/*** Map an EAS Android build process failure to the provider-neutral result contract. */
+function createAndroidBuildFailure(
+  stderr: string,
+): DeploymentProviderResult<AndroidBuildArtifact> {
+  const lower = stderr.toLowerCase();
+  const signingRequired = lower.includes('keystore') || lower.includes('credential');
+  return signingRequired
+    ? {
+        status: 'action-required',
+        action: {
+          type: 'manual-action',
+          target: 'android',
+          provider: 'eas',
+          code: 'EAS_ANDROID_SIGNING_SETUP_REQUIRED',
+          message: 'Android signing credentials require EAS account or project setup.',
+        },
+      }
+    : {
+        status: 'failed',
+        failure: {
+          code: 'EAS_ANDROID_BUILD_FAILED',
+          message: 'EAS Android build failed.',
+          target: 'android',
+          provider: 'eas',
+        },
+      };
+}
+
+/*** Normalize a successful EAS process result into an Android build artifact. */
+function normalizeAndroidBuildResult(
+  stdout: string,
+  request: AndroidBuildRequest,
+): DeploymentProviderResult<AndroidBuildArtifact> {
   const artifact = parseEasAndroidBuild(
-    parseJson(result.stdout),
+    parseJson(stdout),
     request.expectedFingerprint,
     request.buildProfile,
   );
@@ -77,13 +98,4 @@ export async function buildAndroidWithEasAsync(
         },
       }
     : { status: 'completed', value: artifact };
-}
-
-/*** Parse process JSON output without throwing across the adapter boundary. */
-function parseJson(value: string): unknown {
-  try {
-    return JSON.parse(value) as unknown;
-  } catch {
-    return null;
-  }
 }
