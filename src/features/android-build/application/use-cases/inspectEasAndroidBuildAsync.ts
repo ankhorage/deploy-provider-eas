@@ -99,14 +99,14 @@ async function inspectAndroidFingerprintAsync(
 
 /*** Build the invalid-profile result before invoking EAS. */
 function invalidAndroidBuildProfile(): DeploymentProviderResult<AndroidBuildInspection> {
-  return androidInspectionFailure('INVALID_ANDROID_BUILD_PROFILE', 'Android build profile is invalid.');
+  return androidInspectionFailure(
+    'INVALID_ANDROID_BUILD_PROFILE',
+    'Android build profile is invalid.',
+  );
 }
 
 /*** Build one provider-neutral Android inspection failure. */
-function androidInspectionFailure<T>(
-  code: string,
-  message: string,
-): DeploymentProviderResult<T> {
+function androidInspectionFailure<T>(code: string, message: string): DeploymentProviderResult<T> {
   return {
     status: 'failed',
     failure: { code, message, target: 'android', provider: 'eas' },
