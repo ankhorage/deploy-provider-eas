@@ -60,7 +60,7 @@
     "version-packages": "ankhorage-changeset version"
   },
   "dependencies": {
-    "@ankhorage/contracts": "^19.2.0",
+    "@ankhorage/contracts": "^19.2.1",
     "@ankhorage/utility": "^0.8.0"
   },
   "devDependencies": {
