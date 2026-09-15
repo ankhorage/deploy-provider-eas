@@ -8,7 +8,9 @@ import type { EasProcessRunner } from '../../../../types/process.js';
 import { resolveEasProcessEnvironmentAsync } from '../../../../utils/resolveEasProcessEnvironmentAsync.js';
 
 /*** Create the EAS setup adapter used by Deploy to inspect authentication and project linkage. */
-export function createEasSetupAdapter(runProcess: EasProcessRunner): DeploymentProviderSetupAdapter {
+export function createEasSetupAdapter(
+  runProcess: EasProcessRunner,
+): DeploymentProviderSetupAdapter {
   return {
     provider: 'eas',
     inspectSetup: async (context) => {
@@ -21,7 +23,11 @@ export function createEasSetupAdapter(runProcess: EasProcessRunner): DeploymentP
         return {
           provider: 'eas',
           authentication: { status: 'required', action: environment.action },
-          capabilities: createCapabilityStates(context.target, 'unavailable', 'Authentication required.'),
+          capabilities: createCapabilityStates(
+            context.target,
+            'unavailable',
+            'Authentication required.',
+          ),
           provisioning: [{ type: 'authentication', action: environment.action }],
         };
       }
@@ -47,7 +53,11 @@ export function createEasSetupAdapter(runProcess: EasProcessRunner): DeploymentP
         return {
           provider: 'eas',
           authentication: { status: 'required', action },
-          capabilities: createCapabilityStates(context.target, 'unavailable', 'Authentication required.'),
+          capabilities: createCapabilityStates(
+            context.target,
+            'unavailable',
+            'Authentication required.',
+          ),
           provisioning: [{ type: 'authentication', action }],
         };
       }
@@ -59,7 +69,8 @@ export function createEasSetupAdapter(runProcess: EasProcessRunner): DeploymentP
         ...processEnvironment,
       });
       if (project.exitCode !== 0) {
-        const targets = context.target === undefined ? (['web', 'android', 'ios'] as const) : [context.target];
+        const targets =
+          context.target === undefined ? (['web', 'android', 'ios'] as const) : [context.target];
         return {
           provider: 'eas',
           authentication: { status: 'authenticated' },
@@ -97,7 +108,10 @@ function createCapabilityStates(
   status: DeploymentProviderCapabilityState['status'],
   reason?: string,
 ): readonly DeploymentProviderCapabilityState[] {
-  const capabilities = target === undefined ? (['build', 'publish'] as const) : [target === 'web' ? 'publish' : 'build'];
+  const capabilities =
+    target === undefined
+      ? (['build', 'publish'] as const)
+      : [target === 'web' ? 'publish' : 'build'];
   return capabilities.map((capability) => ({
     capability,
     status,

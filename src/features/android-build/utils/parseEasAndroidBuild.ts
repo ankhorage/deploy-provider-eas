@@ -30,7 +30,8 @@ export function parseEasAndroidBuild(
 
 /*** Parse a positive Android version code from EAS output. */
 function parseVersionCode(value: unknown): number | null {
-  const parsed = typeof value === 'number' ? value : typeof value === 'string' ? Number(value) : NaN;
+  const parsed =
+    typeof value === 'number' ? value : typeof value === 'string' ? Number(value) : NaN;
   return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : null;
 }
 

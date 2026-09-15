@@ -18,10 +18,16 @@ export function parseEasAndroidConfig(
     return failure('EAS_ANDROID_PACKAGE_MISSING');
   }
   if (androidConfig.package !== expectedPackageName) {
-    return failure('ANDROID_PACKAGE_MISMATCH', 'EAS Android package does not match deployment config.');
+    return failure(
+      'ANDROID_PACKAGE_MISMATCH',
+      'EAS Android package does not match deployment config.',
+    );
   }
   if (!isStoreProfile(value.buildProfile)) {
-    return failure('EAS_ANDROID_PROFILE_NOT_STORE_READY', 'EAS Android build profile is not store-ready.');
+    return failure(
+      'EAS_ANDROID_PROFILE_NOT_STORE_READY',
+      'EAS Android build profile is not store-ready.',
+    );
   }
 
   const profileEnvironment = normalizeEnvironment(value.buildProfile.env);
@@ -51,7 +57,9 @@ function normalizeEnvironment(value: unknown): Readonly<Record<string, string>> 
   if (value === undefined) return {};
   if (!isRecord(value)) return null;
   const entries = Object.entries(value);
-  const stringEntries = entries.filter((entry): entry is [string, string] => typeof entry[1] === 'string');
+  const stringEntries = entries.filter(
+    (entry): entry is [string, string] => typeof entry[1] === 'string',
+  );
   return stringEntries.length === entries.length ? Object.fromEntries(stringEntries) : null;
 }
 

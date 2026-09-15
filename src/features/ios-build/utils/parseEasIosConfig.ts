@@ -51,7 +51,9 @@ function normalizeEnvironment(value: unknown): Readonly<Record<string, string>> 
   if (value === undefined) return {};
   if (!isRecord(value)) return null;
   const entries = Object.entries(value);
-  const stringEntries = entries.filter((entry): entry is [string, string] => typeof entry[1] === 'string');
+  const stringEntries = entries.filter(
+    (entry): entry is [string, string] => typeof entry[1] === 'string',
+  );
   return stringEntries.length === entries.length ? Object.fromEntries(stringEntries) : null;
 }
 

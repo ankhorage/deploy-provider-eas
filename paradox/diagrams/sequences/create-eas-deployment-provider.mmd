@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant participant_createEasAndroidBuilder as createEasAndroidBuilder
+  participant participant_createEasDeploymentProvider as createEasDeploymentProvider
+  participant participant_createEasIosBuilder as createEasIosBuilder
+  participant participant_createEasSetupAdapter as createEasSetupAdapter
+  participant participant_createEasWebPublisher as createEasWebPublisher
+  participant_createEasDeploymentProvider->>participant_createEasSetupAdapter: createEasSetupAdapter()
+  participant_createEasSetupAdapter-->>participant_createEasDeploymentProvider: return
+  participant_createEasDeploymentProvider->>participant_createEasWebPublisher: createEasWebPublisher()
+  participant_createEasWebPublisher-->>participant_createEasDeploymentProvider: return
+  participant_createEasDeploymentProvider->>participant_createEasAndroidBuilder: createEasAndroidBuilder()
+  participant_createEasAndroidBuilder-->>participant_createEasDeploymentProvider: return
+  participant_createEasDeploymentProvider->>participant_createEasIosBuilder: createEasIosBuilder()
+  participant_createEasIosBuilder-->>participant_createEasDeploymentProvider: return
