@@ -1,91 +1,104 @@
-import type { WebDeploymentPublisher } from '@ankhorage/contracts/deploy-provider';
+import type {
+  DeploymentProviderResult,
+  WebDeploymentPublication,
+  WebDeploymentPublisher,
+  WebDeploymentPublishRequest,
+} from '@ankhorage/contracts/deploy-provider';
 
-import type { EasProcessRunner } from '../../../../types/process.js';
+import type { EasProcessResult, EasProcessRunner } from '../../../../types/process.js';
+import { parseJson } from '../../../../utils/parseJson.js';
 import { resolveEasProcessEnvironmentAsync } from '../../../../utils/resolveEasProcessEnvironmentAsync.js';
 import { parseEasWebPublication } from '../../utils/parseEasWebPublication.js';
 
 /*** Create the EAS Hosting publisher implementing the provider-neutral web publication port. */
 export function createEasWebPublisher(runProcess: EasProcessRunner): WebDeploymentPublisher {
   return {
-    publishAsync: async (request) => {
-      if (
-        (request.intent.alias !== undefined && request.intent.alias.trim().length === 0) ||
-        (request.intent.environment !== undefined && request.intent.environment.trim().length === 0)
-      ) {
-        return {
-          status: 'failed',
-          failure: {
-            code: 'INVALID_WEB_PUBLISH_INTENT',
-            message: 'Web publish intent is invalid.',
-            target: 'web',
-            provider: 'eas',
-          },
-        };
-      }
-
-      const environment = await resolveEasProcessEnvironmentAsync({
-        target: 'web',
-        credentials: request.credentials,
-        resolveSecret: request.resolveSecret,
-      });
-      if (!environment.ok) return { status: 'action-required', action: environment.action };
-
-      const args = [
-        'deploy',
-        '--json',
-        '--non-interactive',
-        '--export-dir',
-        request.exportDirectory,
-        ...(request.intent.mode === 'production' ? ['--prod'] : []),
-        ...(request.intent.alias === undefined ? [] : ['--alias', request.intent.alias]),
-        ...(request.intent.environment === undefined
-          ? []
-          : ['--environment', request.intent.environment]),
-      ];
-      const result = await runProcess({
-        command: 'eas',
-        args,
-        cwd: request.projectRoot,
-        ...(environment.env === undefined ? {} : { env: environment.env }),
-      });
-      if (result.exitCode !== 0) {
-        return {
-          status: 'failed',
-          failure: {
-            code: 'EAS_WEB_PUBLISH_FAILED',
-            message: 'EAS Hosting publication failed.',
-            target: 'web',
-            provider: 'eas',
-          },
-        };
-      }
-
-      const parsed = parseJson(result.stdout);
-      const publication = parseEasWebPublication(
-        parsed,
-        request.revision,
-        request.intent.mode === 'production',
-      );
-      return publication === null
-        ? {
-            status: 'failed',
-            failure: {
-              code: 'EAS_WEB_INVALID_RESULT',
-              message: 'EAS Hosting returned an invalid result.',
-              target: 'web',
-              provider: 'eas',
-            },
-          }
-        : { status: 'completed', value: publication };
-    },
+    publishAsync: (request) => publishWebWithEasAsync(request, runProcess),
   };
 }
 
-/*** Parse provider JSON output without throwing across the adapter boundary. */
-function parseJson(value: string): unknown {
-  try {
-    return JSON.parse(value) as unknown;
-  } catch {
-    return null;
+/*** Publish one web export through EAS Hosting. */
+async function publishWebWithEasAsync(
+  request: WebDeploymentPublishRequest,
+  runProcess: EasProcessRunner,
+): Promise<DeploymentProviderResult<WebDeploymentPublication>> {
+  if (isInvalidWebPublishIntent(request)) {
+    return webPublicationFailure('INVALID_WEB_PUBLISH_INTENT', 'Web publish intent is invalid.');
   }
+
+  const environment = await resolveEasProcessEnvironmentAsync({
+    target: 'web',
+    credentials: request.credentials,
+    resolveSecret: request.resolveSecret,
+  });
+  if (!environment.ok) return { status: 'action-required', action: environment.action };
+
+  const result = await runWebDeployAsync(request, environment.env, runProcess);
+  if (result.exitCode !== 0) {
+    return webPublicationFailure('EAS_WEB_PUBLISH_FAILED', 'EAS Hosting publication failed.');
+  }
+  return normalizeWebPublication(result.stdout, request);
+}
+
+/*** Reject empty optional alias or environment values before invoking EAS. */
+function isInvalidWebPublishIntent(request: WebDeploymentPublishRequest): boolean {
+  return (
+    request.intent.alias?.trim().length === 0 || request.intent.environment?.trim().length === 0
+  );
+}
+
+/*** Run the EAS Hosting deployment command. */
+function runWebDeployAsync(
+  request: WebDeploymentPublishRequest,
+  environment: Readonly<Record<string, string>> | undefined,
+  runProcess: EasProcessRunner,
+): Promise<EasProcessResult> {
+  return runProcess({
+    command: 'eas',
+    args: createWebDeployArgs(request),
+    cwd: request.projectRoot,
+    ...(environment === undefined ? {} : { env: environment }),
+  });
+}
+
+/*** Build the EAS Hosting command arguments for one publish intent. */
+function createWebDeployArgs(request: WebDeploymentPublishRequest): readonly string[] {
+  return [
+    'deploy',
+    '--json',
+    '--non-interactive',
+    '--export-dir',
+    request.exportDirectory,
+    ...(request.intent.mode === 'production' ? ['--prod'] : []),
+    ...(request.intent.alias === undefined ? [] : ['--alias', request.intent.alias]),
+    ...(request.intent.environment === undefined
+      ? []
+      : ['--environment', request.intent.environment]),
+  ];
+}
+
+/*** Normalize successful EAS Hosting output into the provider-neutral publication contract. */
+function normalizeWebPublication(
+  stdout: string,
+  request: WebDeploymentPublishRequest,
+): DeploymentProviderResult<WebDeploymentPublication> {
+  const publication = parseEasWebPublication(
+    parseJson(stdout),
+    request.revision,
+    request.intent.mode === 'production',
+  );
+  return publication === null
+    ? webPublicationFailure('EAS_WEB_INVALID_RESULT', 'EAS Hosting returned an invalid result.')
+    : { status: 'completed', value: publication };
+}
+
+/*** Build one provider-neutral web publication failure. */
+function webPublicationFailure(
+  code: string,
+  message: string,
+): DeploymentProviderResult<WebDeploymentPublication> {
+  return {
+    status: 'failed',
+    failure: { code, message, target: 'web', provider: 'eas' },
+  };
 }
