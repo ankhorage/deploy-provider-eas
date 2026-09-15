@@ -108,13 +108,9 @@ function createCapabilityStates(
   status: DeploymentProviderCapabilityState['status'],
   reason?: string,
 ): readonly DeploymentProviderCapabilityState[] {
-  const capabilities =
-    target === undefined
-      ? (['build', 'publish'] as const)
-      : [target === 'web' ? 'publish' : 'build'];
-  return capabilities.map((capability) => ({
-    capability,
-    status,
-    ...(reason === undefined ? {} : { reason }),
-  }));
+  const capabilities: readonly DeploymentProviderCapabilityState['capability'][] =
+    target === undefined ? ['build', 'publish'] : [target === 'web' ? 'publish' : 'build'];
+  return capabilities.map<DeploymentProviderCapabilityState>((capability) =>
+    reason === undefined ? { capability, status } : { capability, status, reason },
+  );
 }
