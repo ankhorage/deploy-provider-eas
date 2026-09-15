@@ -7,16 +7,37 @@
     <style>
       :root {
         color-scheme: light;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
         background: #f5f7fb;
         color: #11203b;
       }
-      * { box-sizing: border-box; }
-      body { margin: 0; }
-      a { color: #2459d3; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      button { font: inherit; }
-      code, pre { font-family: "SFMono-Regular", ui-monospace, SFMono-Regular, Menlo, monospace; }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      a {
+        color: #2459d3;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      button {
+        font: inherit;
+      }
+      code,
+      pre {
+        font-family: 'SFMono-Regular', ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
       .layout {
         display: grid;
         grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
@@ -31,8 +52,11 @@
         max-height: 100vh;
         overflow: auto;
       }
-      .content { padding: 2rem; }
-      .panel, .item {
+      .content {
+        padding: 2rem;
+      }
+      .panel,
+      .item {
         background: #ffffff;
         border: 1px solid #d8dfec;
         border-radius: 0.9rem;
@@ -56,12 +80,15 @@
         border: 1px solid #c7d2e5;
         margin: 1rem 0 1.5rem;
       }
-      .nav-list, .meta-list {
+      .nav-list,
+      .meta-list {
         list-style: none;
         padding: 0;
         margin: 0;
       }
-      .nav-list li + li { margin-top: 0.5rem; }
+      .nav-list li + li {
+        margin-top: 0.5rem;
+      }
       .nav-button {
         width: 100%;
         display: block;
@@ -73,7 +100,8 @@
         padding: 0.55rem 0.7rem;
         text-align: left;
       }
-      .nav-button:hover, .nav-button[aria-current="page"] {
+      .nav-button:hover,
+      .nav-button[aria-current='page'] {
         background: #e8eefb;
         text-decoration: none;
       }
@@ -82,9 +110,19 @@
         color: #5e6d8c;
         margin-top: 0.15rem;
       }
-      .view[hidden] { display: none; }
-      .muted { color: #5e6d8c; }
-      .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; list-style: none; }
+      .view[hidden] {
+        display: none;
+      }
+      .muted {
+        color: #5e6d8c;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0;
+        list-style: none;
+      }
       .chip {
         border-radius: 999px;
         background: #e8eefb;
@@ -92,8 +130,18 @@
         padding: 0.25rem 0.65rem;
         font-size: 0.85rem;
       }
-      table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; }
-      th, td { padding: 0.6rem; border-bottom: 1px solid #e2e7f2; text-align: left; vertical-align: top; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.8rem;
+      }
+      th,
+      td {
+        padding: 0.6rem;
+        border-bottom: 1px solid #e2e7f2;
+        text-align: left;
+        vertical-align: top;
+      }
       pre {
         overflow: auto;
         border-radius: 0.75rem;
@@ -101,13 +149,34 @@
         color: #e7edf7;
         padding: 1rem;
       }
-      .empty { font-style: italic; color: #6f7f9c; }
-      .mermaid { margin: 1rem 0; overflow: auto; }
-      details > summary { cursor: pointer; color: #5e6d8c; font-size: 0.9rem; margin-top: 0.5rem; user-select: none; }
+      .empty {
+        font-style: italic;
+        color: #6f7f9c;
+      }
+      .mermaid {
+        margin: 1rem 0;
+        overflow: auto;
+      }
+      details > summary {
+        cursor: pointer;
+        color: #5e6d8c;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        user-select: none;
+      }
       @media (max-width: 900px) {
-        .layout { grid-template-columns: 1fr; }
-        .sidebar { position: static; max-height: none; border-right: 0; border-bottom: 1px solid #d8dfec; }
-        .content { padding: 1rem; }
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          position: static;
+          max-height: none;
+          border-right: 0;
+          border-bottom: 1px solid #d8dfec;
+        }
+        .content {
+          padding: 1rem;
+        }
       }
     </style>
   </head>
@@ -127,291 +196,733 @@
               </button>
             </li>
             <li>
-    <button class="nav-button" type="button" data-target="src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts">
-      src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts
-      <small>2 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts">
-      src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts
-      <small>1 function</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts">
-      src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts
-      <small>2 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts">
-      src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts
-      <small>3 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/android-build/utils/parseEasAndroidBuild.ts">
-      src/features/android-build/utils/parseEasAndroidBuild.ts
-      <small>3 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/android-build/utils/parseEasAndroidConfig.ts">
-      src/features/android-build/utils/parseEasAndroidConfig.ts
-      <small>4 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts">
-      src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts
-      <small>2 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/ios-build/adapters/outbound/createEasIosBuilder.ts">
-      src/features/ios-build/adapters/outbound/createEasIosBuilder.ts
-      <small>1 function</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts">
-      src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts
-      <small>2 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts">
-      src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts
-      <small>3 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/ios-build/utils/parseEasIosBuild.ts">
-      src/features/ios-build/utils/parseEasIosBuild.ts
-      <small>2 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/ios-build/utils/parseEasIosConfig.ts">
-      src/features/ios-build/utils/parseEasIosConfig.ts
-      <small>4 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/provider-registration/composition/createEasDeploymentProvider.ts">
-      src/features/provider-registration/composition/createEasDeploymentProvider.ts
-      <small>1 function</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts">
-      src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts
-      <small>1 function</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/setup/adapters/outbound/createEasSetupAdapter.ts">
-      src/features/setup/adapters/outbound/createEasSetupAdapter.ts
-      <small>2 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts">
-      src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts
-      <small>1 function</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/web-publication/adapters/outbound/createEasWebPublisher.ts">
-      src/features/web-publication/adapters/outbound/createEasWebPublisher.ts
-      <small>2 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/features/web-publication/utils/parseEasWebPublication.ts">
-      src/features/web-publication/utils/parseEasWebPublication.ts
-      <small>2 functions</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/utils/resolveEasProcessEnvironmentAsync.ts">
-      src/utils/resolveEasProcessEnvironmentAsync.ts
-      <small>1 function</small>
-    </button>
-  </li><li>
-    <button class="nav-button" type="button" data-target="src/utils/runEasProcessAsync.ts">
-      src/utils/runEasProcessAsync.ts
-      <small>1 function</small>
-    </button>
-  </li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts"
+              >
+                src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts"
+              >
+                src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+              >
+                src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+              >
+                src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts
+                <small>3 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/android-build/utils/parseEasAndroidBuild.ts"
+              >
+                src/features/android-build/utils/parseEasAndroidBuild.ts
+                <small>3 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/android-build/utils/parseEasAndroidConfig.ts"
+              >
+                src/features/android-build/utils/parseEasAndroidConfig.ts
+                <small>4 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts"
+              >
+                src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/ios-build/adapters/outbound/createEasIosBuilder.ts"
+              >
+                src/features/ios-build/adapters/outbound/createEasIosBuilder.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+              >
+                src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+              >
+                src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts
+                <small>3 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/ios-build/utils/parseEasIosBuild.ts"
+              >
+                src/features/ios-build/utils/parseEasIosBuild.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/ios-build/utils/parseEasIosConfig.ts"
+              >
+                src/features/ios-build/utils/parseEasIosConfig.ts
+                <small>4 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+              >
+                src/features/provider-registration/composition/createEasDeploymentProvider.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts"
+              >
+                src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/setup/adapters/outbound/createEasSetupAdapter.ts"
+              >
+                src/features/setup/adapters/outbound/createEasSetupAdapter.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts"
+              >
+                src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+              >
+                src/features/web-publication/adapters/outbound/createEasWebPublisher.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/features/web-publication/utils/parseEasWebPublication.ts"
+              >
+                src/features/web-publication/utils/parseEasWebPublication.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/utils/resolveEasProcessEnvironmentAsync.ts"
+              >
+                src/utils/resolveEasProcessEnvironmentAsync.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/utils/runEasProcessAsync.ts"
+              >
+                src/utils/runEasProcessAsync.ts
+                <small>1 function</small>
+              </button>
+            </li>
           </ul>
         </nav>
       </aside>
       <main class="content">
         <section id="view-home" class="view" data-view="home">
-          
-    <section class="panel">
-      <h2>Package overview</h2>
-      <div class="summary">
-        <div><strong>1</strong><span class="muted">public exports</span></div>
-        <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>26</strong><span class="muted">modules</span></div>
-        <div><strong>1</strong><span class="muted">entrypoints</span></div>
-      </div>
-      <h3>Entrypoints</h3>
-      <ul class="meta-list">
-        <li><code>src/deployProviderEas.ts</code></li>
-      </ul>
-    </section>
-    
-    <section class="panel">
-      <h2>Modules</h2>
-      <article class="item" data-search="paradox.config.ts default">
-    <h3>paradox.config.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>default</code></p>
-  </article><article class="item" data-search="src/deployProviderEas.test.ts src/deployProviderEas.ts">
-    <h3>src/deployProviderEas.test.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/deployProviderEas.ts</code></p>
-    <p><strong>Exports:</strong> <span class="empty">None</span></p>
-  </article><article class="item" data-search="src/deployProviderEas.ts createEasDeploymentProvider">
-    <h3>src/deployProviderEas.ts</h3>
-    <p class="muted">Configured entrypoint</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>createEasDeploymentProvider</code></p>
-  </article><article class="item" data-search="src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts src/types/process.ts">
-    <h3>src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts</code>, <code>src/types/process.ts</code></p>
-    <p><strong>Exports:</strong> <span class="empty">None</span></p>
-  </article><article class="item" data-search="src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts src/types/process.ts createEasAndroidBuilder">
-    <h3>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts</code>, <code>src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts</code>, <code>src/types/process.ts</code></p>
-    <p><strong>Exports:</strong> <code>createEasAndroidBuilder</code></p>
-  </article><article class="item" data-search="src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts src/features/android-build/utils/parseEasAndroidBuild.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts buildAndroidWithEasAsync">
-    <h3>src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/android-build/utils/parseEasAndroidBuild.ts</code>, <code>src/types/process.ts</code>, <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code></p>
-    <p><strong>Exports:</strong> <code>buildAndroidWithEasAsync</code></p>
-  </article><article class="item" data-search="src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts src/features/android-build/utils/parseEasAndroidConfig.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts inspectEasAndroidBuildAsync">
-    <h3>src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/android-build/utils/parseEasAndroidConfig.ts</code>, <code>src/types/process.ts</code>, <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code></p>
-    <p><strong>Exports:</strong> <code>inspectEasAndroidBuildAsync</code></p>
-  </article><article class="item" data-search="src/features/android-build/utils/parseEasAndroidBuild.ts parseEasAndroidBuild">
-    <h3>src/features/android-build/utils/parseEasAndroidBuild.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>parseEasAndroidBuild</code></p>
-  </article><article class="item" data-search="src/features/android-build/utils/parseEasAndroidConfig.ts src/types/android.ts parseEasAndroidConfig">
-    <h3>src/features/android-build/utils/parseEasAndroidConfig.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/types/android.ts</code></p>
-    <p><strong>Exports:</strong> <code>parseEasAndroidConfig</code></p>
-  </article><article class="item" data-search="src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts src/features/ios-build/adapters/outbound/createEasIosBuilder.ts src/types/process.ts">
-    <h3>src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts</code>, <code>src/types/process.ts</code></p>
-    <p><strong>Exports:</strong> <span class="empty">None</span></p>
-  </article><article class="item" data-search="src/features/ios-build/adapters/outbound/createEasIosBuilder.ts src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts src/types/process.ts createEasIosBuilder">
-    <h3>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts</code>, <code>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts</code>, <code>src/types/process.ts</code></p>
-    <p><strong>Exports:</strong> <code>createEasIosBuilder</code></p>
-  </article><article class="item" data-search="src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts src/features/ios-build/utils/parseEasIosBuild.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts buildIosWithEasAsync">
-    <h3>src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/ios-build/utils/parseEasIosBuild.ts</code>, <code>src/types/process.ts</code>, <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code></p>
-    <p><strong>Exports:</strong> <code>buildIosWithEasAsync</code></p>
-  </article><article class="item" data-search="src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts src/features/ios-build/utils/parseEasIosConfig.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts inspectEasIosBuildAsync">
-    <h3>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/ios-build/utils/parseEasIosConfig.ts</code>, <code>src/types/process.ts</code>, <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code></p>
-    <p><strong>Exports:</strong> <code>inspectEasIosBuildAsync</code></p>
-  </article><article class="item" data-search="src/features/ios-build/utils/parseEasIosBuild.ts parseEasIosBuild">
-    <h3>src/features/ios-build/utils/parseEasIosBuild.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>parseEasIosBuild</code></p>
-  </article><article class="item" data-search="src/features/ios-build/utils/parseEasIosConfig.ts src/types/ios.ts parseEasIosConfig">
-    <h3>src/features/ios-build/utils/parseEasIosConfig.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/types/ios.ts</code></p>
-    <p><strong>Exports:</strong> <code>parseEasIosConfig</code></p>
-  </article><article class="item" data-search="src/features/provider-registration/composition/createEasDeploymentProvider.ts src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts src/features/ios-build/adapters/outbound/createEasIosBuilder.ts src/features/setup/adapters/outbound/createEasSetupAdapter.ts src/features/web-publication/adapters/outbound/createEasWebPublisher.ts src/utils/runEasProcessAsync.ts createEasDeploymentProvider">
-    <h3>src/features/provider-registration/composition/createEasDeploymentProvider.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts</code>, <code>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts</code>, <code>src/features/setup/adapters/outbound/createEasSetupAdapter.ts</code>, <code>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts</code>, <code>src/utils/runEasProcessAsync.ts</code></p>
-    <p><strong>Exports:</strong> <code>createEasDeploymentProvider</code></p>
-  </article><article class="item" data-search="src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts src/features/setup/adapters/outbound/createEasSetupAdapter.ts src/types/process.ts">
-    <h3>src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/setup/adapters/outbound/createEasSetupAdapter.ts</code>, <code>src/types/process.ts</code></p>
-    <p><strong>Exports:</strong> <span class="empty">None</span></p>
-  </article><article class="item" data-search="src/features/setup/adapters/outbound/createEasSetupAdapter.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts createEasSetupAdapter">
-    <h3>src/features/setup/adapters/outbound/createEasSetupAdapter.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/types/process.ts</code>, <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code></p>
-    <p><strong>Exports:</strong> <code>createEasSetupAdapter</code></p>
-  </article><article class="item" data-search="src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts src/features/web-publication/adapters/outbound/createEasWebPublisher.ts src/types/process.ts">
-    <h3>src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts</code>, <code>src/types/process.ts</code></p>
-    <p><strong>Exports:</strong> <span class="empty">None</span></p>
-  </article><article class="item" data-search="src/features/web-publication/adapters/outbound/createEasWebPublisher.ts src/features/web-publication/utils/parseEasWebPublication.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts createEasWebPublisher">
-    <h3>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/web-publication/utils/parseEasWebPublication.ts</code>, <code>src/types/process.ts</code>, <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code></p>
-    <p><strong>Exports:</strong> <code>createEasWebPublisher</code></p>
-  </article><article class="item" data-search="src/features/web-publication/utils/parseEasWebPublication.ts parseEasWebPublication">
-    <h3>src/features/web-publication/utils/parseEasWebPublication.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>parseEasWebPublication</code></p>
-  </article><article class="item" data-search="src/types/android.ts EasAndroidConfigSnapshot">
-    <h3>src/types/android.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>EasAndroidConfigSnapshot</code></p>
-  </article><article class="item" data-search="src/types/ios.ts EasIosConfigSnapshot">
-    <h3>src/types/ios.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>EasIosConfigSnapshot</code></p>
-  </article><article class="item" data-search="src/types/process.ts EasProcessRequest EasProcessResult EasProcessRunner">
-    <h3>src/types/process.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>EasProcessRequest</code>, <code>EasProcessResult</code>, <code>EasProcessRunner</code></p>
-  </article><article class="item" data-search="src/utils/resolveEasProcessEnvironmentAsync.ts EasProcessEnvironmentResult resolveEasProcessEnvironmentAsync">
-    <h3>src/utils/resolveEasProcessEnvironmentAsync.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>EasProcessEnvironmentResult</code>, <code>resolveEasProcessEnvironmentAsync</code></p>
-  </article><article class="item" data-search="src/utils/runEasProcessAsync.ts src/types/process.ts runEasProcessAsync">
-    <h3>src/utils/runEasProcessAsync.ts</h3>
-    <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/types/process.ts</code></p>
-    <p><strong>Exports:</strong> <code>runEasProcessAsync</code></p>
-  </article>
-    </section>
-    <section class="panel">
-      <h2>Public API</h2>
-      
+          <section class="panel">
+            <h2>Package overview</h2>
+            <div class="summary">
+              <div><strong>1</strong><span class="muted">public exports</span></div>
+              <div><strong>0</strong><span class="muted">components</span></div>
+              <div><strong>26</strong><span class="muted">modules</span></div>
+              <div><strong>1</strong><span class="muted">entrypoints</span></div>
+            </div>
+            <h3>Entrypoints</h3>
+            <ul class="meta-list">
+              <li><code>src/deployProviderEas.ts</code></li>
+            </ul>
+          </section>
+
+          <section class="panel">
+            <h2>Modules</h2>
+            <article class="item" data-search="paradox.config.ts default">
+              <h3>paradox.config.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>default</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/deployProviderEas.test.ts src/deployProviderEas.ts"
+            >
+              <h3>src/deployProviderEas.test.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/deployProviderEas.ts</code></p>
+              <p><strong>Exports:</strong> <span class="empty">None</span></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/deployProviderEas.ts createEasDeploymentProvider"
+            >
+              <h3>src/deployProviderEas.ts</h3>
+              <p class="muted">Configured entrypoint</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>createEasDeploymentProvider</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts src/types/process.ts"
+            >
+              <h3>src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts</code
+                >, <code>src/types/process.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <span class="empty">None</span></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts src/types/process.ts createEasAndroidBuilder"
+            >
+              <h3>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code
+                  >src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts</code
+                >,
+                <code
+                  >src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts</code
+                >, <code>src/types/process.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>createEasAndroidBuilder</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts src/features/android-build/utils/parseEasAndroidBuild.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts buildAndroidWithEasAsync"
+            >
+              <h3>src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/android-build/utils/parseEasAndroidBuild.ts</code>,
+                <code>src/types/process.ts</code>,
+                <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>buildAndroidWithEasAsync</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts src/features/android-build/utils/parseEasAndroidConfig.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts inspectEasAndroidBuildAsync"
+            >
+              <h3>
+                src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts
+              </h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/android-build/utils/parseEasAndroidConfig.ts</code>,
+                <code>src/types/process.ts</code>,
+                <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>inspectEasAndroidBuildAsync</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/android-build/utils/parseEasAndroidBuild.ts parseEasAndroidBuild"
+            >
+              <h3>src/features/android-build/utils/parseEasAndroidBuild.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>parseEasAndroidBuild</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/android-build/utils/parseEasAndroidConfig.ts src/types/android.ts parseEasAndroidConfig"
+            >
+              <h3>src/features/android-build/utils/parseEasAndroidConfig.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/types/android.ts</code></p>
+              <p><strong>Exports:</strong> <code>parseEasAndroidConfig</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts src/features/ios-build/adapters/outbound/createEasIosBuilder.ts src/types/process.ts"
+            >
+              <h3>src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts</code>,
+                <code>src/types/process.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <span class="empty">None</span></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/ios-build/adapters/outbound/createEasIosBuilder.ts src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts src/types/process.ts createEasIosBuilder"
+            >
+              <h3>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts</code>,
+                <code>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts</code
+                >, <code>src/types/process.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>createEasIosBuilder</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts src/features/ios-build/utils/parseEasIosBuild.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts buildIosWithEasAsync"
+            >
+              <h3>src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/ios-build/utils/parseEasIosBuild.ts</code>,
+                <code>src/types/process.ts</code>,
+                <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>buildIosWithEasAsync</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts src/features/ios-build/utils/parseEasIosConfig.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts inspectEasIosBuildAsync"
+            >
+              <h3>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/ios-build/utils/parseEasIosConfig.ts</code>,
+                <code>src/types/process.ts</code>,
+                <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>inspectEasIosBuildAsync</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/ios-build/utils/parseEasIosBuild.ts parseEasIosBuild"
+            >
+              <h3>src/features/ios-build/utils/parseEasIosBuild.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>parseEasIosBuild</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/ios-build/utils/parseEasIosConfig.ts src/types/ios.ts parseEasIosConfig"
+            >
+              <h3>src/features/ios-build/utils/parseEasIosConfig.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/types/ios.ts</code></p>
+              <p><strong>Exports:</strong> <code>parseEasIosConfig</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/provider-registration/composition/createEasDeploymentProvider.ts src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts src/features/ios-build/adapters/outbound/createEasIosBuilder.ts src/features/setup/adapters/outbound/createEasSetupAdapter.ts src/features/web-publication/adapters/outbound/createEasWebPublisher.ts src/utils/runEasProcessAsync.ts createEasDeploymentProvider"
+            >
+              <h3>src/features/provider-registration/composition/createEasDeploymentProvider.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts</code
+                >, <code>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts</code>,
+                <code>src/features/setup/adapters/outbound/createEasSetupAdapter.ts</code>,
+                <code>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts</code
+                >, <code>src/utils/runEasProcessAsync.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>createEasDeploymentProvider</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts src/features/setup/adapters/outbound/createEasSetupAdapter.ts src/types/process.ts"
+            >
+              <h3>src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/setup/adapters/outbound/createEasSetupAdapter.ts</code>,
+                <code>src/types/process.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <span class="empty">None</span></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/setup/adapters/outbound/createEasSetupAdapter.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts createEasSetupAdapter"
+            >
+              <h3>src/features/setup/adapters/outbound/createEasSetupAdapter.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/types/process.ts</code>,
+                <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>createEasSetupAdapter</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts src/features/web-publication/adapters/outbound/createEasWebPublisher.ts src/types/process.ts"
+            >
+              <h3>src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts</code
+                >, <code>src/types/process.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <span class="empty">None</span></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/web-publication/adapters/outbound/createEasWebPublisher.ts src/features/web-publication/utils/parseEasWebPublication.ts src/types/process.ts src/utils/resolveEasProcessEnvironmentAsync.ts createEasWebPublisher"
+            >
+              <h3>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong>
+                <code>src/features/web-publication/utils/parseEasWebPublication.ts</code>,
+                <code>src/types/process.ts</code>,
+                <code>src/utils/resolveEasProcessEnvironmentAsync.ts</code>
+              </p>
+              <p><strong>Exports:</strong> <code>createEasWebPublisher</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/features/web-publication/utils/parseEasWebPublication.ts parseEasWebPublication"
+            >
+              <h3>src/features/web-publication/utils/parseEasWebPublication.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>parseEasWebPublication</code></p>
+            </article>
+            <article class="item" data-search="src/types/android.ts EasAndroidConfigSnapshot">
+              <h3>src/types/android.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>EasAndroidConfigSnapshot</code></p>
+            </article>
+            <article class="item" data-search="src/types/ios.ts EasIosConfigSnapshot">
+              <h3>src/types/ios.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>EasIosConfigSnapshot</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/types/process.ts EasProcessRequest EasProcessResult EasProcessRunner"
+            >
+              <h3>src/types/process.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>EasProcessRequest</code>,
+                <code>EasProcessResult</code>, <code>EasProcessRunner</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/utils/resolveEasProcessEnvironmentAsync.ts EasProcessEnvironmentResult resolveEasProcessEnvironmentAsync"
+            >
+              <h3>src/utils/resolveEasProcessEnvironmentAsync.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>EasProcessEnvironmentResult</code>,
+                <code>resolveEasProcessEnvironmentAsync</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/utils/runEasProcessAsync.ts src/types/process.ts runEasProcessAsync"
+            >
+              <h3>src/utils/runEasProcessAsync.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/types/process.ts</code></p>
+              <p><strong>Exports:</strong> <code>runEasProcessAsync</code></p>
+            </article>
+          </section>
+          <section class="panel">
+            <h2>Public API</h2>
+
             <section>
               <h3>src/features/provider-registration/composition/createEasDeploymentProvider.ts</h3>
-              <article class="item" id="symbol-createeasdeploymentprovider" data-search="createEasDeploymentProvider function src/features/provider-registration/composition/createEasDeploymentProvider.ts Create the canonical EAS provider registration consumed by the Deploy composition root. () =&gt; DeploymentProviderRegistration">
-    <h4>createEasDeploymentProvider</h4>
-    <p class="muted">function • <code>src/features/provider-registration/composition/createEasDeploymentProvider.ts:14:1</code></p>
-    <p>Create the canonical EAS provider registration consumed by the Deploy composition root.</p>
-    <p><strong>Export paths:</strong> <code>src/deployProviderEas.ts</code></p>
-    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
-    <div>
-        <h5>Signature</h5>
-        <pre>() =&gt; DeploymentProviderRegistration</pre>
-        
-        <p><strong>Returns:</strong> <code>DeploymentProviderRegistration</code></p>
-      </div>
-    
-  </article>
+              <article
+                class="item"
+                id="symbol-createeasdeploymentprovider"
+                data-search="createEasDeploymentProvider function src/features/provider-registration/composition/createEasDeploymentProvider.ts Create the canonical EAS provider registration consumed by the Deploy composition root. () =&gt; DeploymentProviderRegistration"
+              >
+                <h4>createEasDeploymentProvider</h4>
+                <p class="muted">
+                  function •
+                  <code
+                    >src/features/provider-registration/composition/createEasDeploymentProvider.ts:14:1</code
+                  >
+                </p>
+                <p>
+                  Create the canonical EAS provider registration consumed by the Deploy composition
+                  root.
+                </p>
+                <p><strong>Export paths:</strong> <code>src/deployProviderEas.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>() =&gt; DeploymentProviderRegistration</pre>
+
+                  <p><strong>Returns:</strong> <code>DeploymentProviderRegistration</code></p>
+                </div>
+              </article>
             </section>
-    </section>
-    <section class="panel">
-      <h2>Component registry</h2>
-      <p class="empty">No components were detected.</p>
-    </section>
-    <section class="panel">
-      <h2>Diagrams</h2>
-      <article class="item" data-search="Architecture overview diagrams/architecture-overview.mmd">
-    <h3>Architecture overview</h3>
-    <p class="muted"><code>diagrams/architecture-overview.mmd</code></p>
-    <div class="mermaid">graph TD
+          </section>
+          <section class="panel">
+            <h2>Component registry</h2>
+            <p class="empty">No components were detected.</p>
+          </section>
+          <section class="panel">
+            <h2>Diagrams</h2>
+            <article
+              class="item"
+              data-search="Architecture overview diagrams/architecture-overview.mmd"
+            >
+              <h3>Architecture overview</h3>
+              <p class="muted"><code>diagrams/architecture-overview.mmd</code></p>
+              <div class="mermaid">
+                graph TD
+                package__ankhorage_deploy_provider_eas[&quot;@ankhorage/deploy-provider-eas&quot;]
+                entrypoint_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
+                package__ankhorage_deploy_provider_eas --&gt; entrypoint_src_deployProviderEas_ts
+                module_paradox_config_ts[&quot;paradox.config.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt; module_paradox_config_ts
+                module_src_deployProviderEas_test_ts[&quot;src/deployProviderEas.test.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt; module_src_deployProviderEas_test_ts
+                module_src_deployProviderEas_test_ts --&gt; module_src_deployProviderEas_ts
+                module_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts
+                --&gt;
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                --&gt;
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                --&gt;
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts[&quot;src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                --&gt; module_src_features_android_build_utils_parseEasAndroidBuild_ts
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts[&quot;src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                --&gt; module_src_features_android_build_utils_parseEasAndroidConfig_ts
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_android_build_utils_parseEasAndroidBuild_ts[&quot;src/features/android-build/utils/parseEasAndroidBuild.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_android_build_utils_parseEasAndroidBuild_ts
+                module_src_features_android_build_utils_parseEasAndroidConfig_ts[&quot;src/features/android-build/utils/parseEasAndroidConfig.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_android_build_utils_parseEasAndroidConfig_ts
+                module_src_features_android_build_utils_parseEasAndroidConfig_ts --&gt;
+                module_src_types_android_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts --&gt;
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt;
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt;
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts[&quot;src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt;
+                module_src_features_ios_build_utils_parseEasIosBuild_ts
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt;
+                module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts[&quot;src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                --&gt; module_src_features_ios_build_utils_parseEasIosConfig_ts
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_ios_build_utils_parseEasIosBuild_ts[&quot;src/features/ios-build/utils/parseEasIosBuild.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_ios_build_utils_parseEasIosBuild_ts
+                module_src_features_ios_build_utils_parseEasIosConfig_ts[&quot;src/features/ios-build/utils/parseEasIosConfig.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_ios_build_utils_parseEasIosConfig_ts
+                module_src_features_ios_build_utils_parseEasIosConfig_ts --&gt;
+                module_src_types_ios_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts[&quot;src/features/provider-registration/composition/createEasDeploymentProvider.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt;
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt; module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt; module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt;
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt; module_src_utils_runEasProcessAsync_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts --&gt;
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts --&gt;
+                module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts
+                --&gt;
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                --&gt; module_src_features_web_publication_utils_parseEasWebPublication_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_web_publication_utils_parseEasWebPublication_ts[&quot;src/features/web-publication/utils/parseEasWebPublication.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_features_web_publication_utils_parseEasWebPublication_ts
+                module_src_types_android_ts[&quot;src/types/android.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt; module_src_types_android_ts
+                module_src_types_ios_ts[&quot;src/types/ios.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt; module_src_types_ios_ts
+                module_src_types_process_ts[&quot;src/types/process.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt; module_src_types_process_ts
+                module_src_utils_resolveEasProcessEnvironmentAsync_ts[&quot;src/utils/resolveEasProcessEnvironmentAsync.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_utils_runEasProcessAsync_ts[&quot;src/utils/runEasProcessAsync.ts&quot;]
+                package__ankhorage_deploy_provider_eas -.-&gt;
+                module_src_utils_runEasProcessAsync_ts module_src_utils_runEasProcessAsync_ts --&gt;
+                module_src_types_process_ts
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+graph TD
   package__ankhorage_deploy_provider_eas[&quot;@ankhorage/deploy-provider-eas&quot;]
   entrypoint_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
   package__ankhorage_deploy_provider_eas --&gt; entrypoint_src_deployProviderEas_ts
@@ -506,180 +1017,131 @@
   module_src_utils_runEasProcessAsync_ts[&quot;src/utils/runEasProcessAsync.ts&quot;]
   package__ankhorage_deploy_provider_eas -.-&gt; module_src_utils_runEasProcessAsync_ts
   module_src_utils_runEasProcessAsync_ts --&gt; module_src_types_process_ts
-</div>
-    <details>
-      <summary>View Mermaid source</summary>
-      <pre>graph TD
-  package__ankhorage_deploy_provider_eas[&quot;@ankhorage/deploy-provider-eas&quot;]
-  entrypoint_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
-  package__ankhorage_deploy_provider_eas --&gt; entrypoint_src_deployProviderEas_ts
-  module_paradox_config_ts[&quot;paradox.config.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_paradox_config_ts
-  module_src_deployProviderEas_test_ts[&quot;src/deployProviderEas.test.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_deployProviderEas_test_ts
-  module_src_deployProviderEas_test_ts --&gt; module_src_deployProviderEas_ts
-  module_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts --&gt; module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts --&gt; module_src_types_process_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts --&gt; module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts --&gt; module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts --&gt; module_src_types_process_ts
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts[&quot;src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts --&gt; module_src_features_android_build_utils_parseEasAndroidBuild_ts
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts --&gt; module_src_types_process_ts
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts[&quot;src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts --&gt; module_src_features_android_build_utils_parseEasAndroidConfig_ts
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts --&gt; module_src_types_process_ts
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_android_build_utils_parseEasAndroidBuild_ts[&quot;src/features/android-build/utils/parseEasAndroidBuild.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_android_build_utils_parseEasAndroidBuild_ts
-  module_src_features_android_build_utils_parseEasAndroidConfig_ts[&quot;src/features/android-build/utils/parseEasAndroidConfig.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_android_build_utils_parseEasAndroidConfig_ts
-  module_src_features_android_build_utils_parseEasAndroidConfig_ts --&gt; module_src_types_android_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts --&gt; module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts --&gt; module_src_types_process_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt; module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt; module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt; module_src_types_process_ts
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts[&quot;src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt; module_src_features_ios_build_utils_parseEasIosBuild_ts
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt; module_src_types_process_ts
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts[&quot;src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts --&gt; module_src_features_ios_build_utils_parseEasIosConfig_ts
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts --&gt; module_src_types_process_ts
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_ios_build_utils_parseEasIosBuild_ts[&quot;src/features/ios-build/utils/parseEasIosBuild.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_ios_build_utils_parseEasIosBuild_ts
-  module_src_features_ios_build_utils_parseEasIosConfig_ts[&quot;src/features/ios-build/utils/parseEasIosConfig.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_ios_build_utils_parseEasIosConfig_ts
-  module_src_features_ios_build_utils_parseEasIosConfig_ts --&gt; module_src_types_ios_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts[&quot;src/features/provider-registration/composition/createEasDeploymentProvider.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_utils_runEasProcessAsync_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts --&gt; module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts --&gt; module_src_types_process_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts --&gt; module_src_types_process_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts --&gt; module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts --&gt; module_src_types_process_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts --&gt; module_src_features_web_publication_utils_parseEasWebPublication_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts --&gt; module_src_types_process_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_web_publication_utils_parseEasWebPublication_ts[&quot;src/features/web-publication/utils/parseEasWebPublication.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_features_web_publication_utils_parseEasWebPublication_ts
-  module_src_types_android_ts[&quot;src/types/android.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_types_android_ts
-  module_src_types_ios_ts[&quot;src/types/ios.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_types_ios_ts
-  module_src_types_process_ts[&quot;src/types/process.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_types_process_ts
-  module_src_utils_resolveEasProcessEnvironmentAsync_ts[&quot;src/utils/resolveEasProcessEnvironmentAsync.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_utils_runEasProcessAsync_ts[&quot;src/utils/runEasProcessAsync.ts&quot;]
-  package__ankhorage_deploy_provider_eas -.-&gt; module_src_utils_runEasProcessAsync_ts
-  module_src_utils_runEasProcessAsync_ts --&gt; module_src_types_process_ts
 </pre>
-    </details>
-  </article><article class="item" data-search="Module relationships diagrams/module-relationships.mmd">
-    <h3>Module relationships</h3>
-    <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
-    <div class="mermaid">graph LR
-  module_paradox_config_ts[&quot;paradox.config.ts&quot;]
-  module_src_deployProviderEas_test_ts[&quot;src/deployProviderEas.test.ts&quot;]
-  module_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts&quot;]
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts&quot;]
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts[&quot;src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts&quot;]
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts[&quot;src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts&quot;]
-  module_src_features_android_build_utils_parseEasAndroidBuild_ts[&quot;src/features/android-build/utils/parseEasAndroidBuild.ts&quot;]
-  module_src_features_android_build_utils_parseEasAndroidConfig_ts[&quot;src/features/android-build/utils/parseEasAndroidConfig.ts&quot;]
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts&quot;]
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.ts&quot;]
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts[&quot;src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts&quot;]
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts[&quot;src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts&quot;]
-  module_src_features_ios_build_utils_parseEasIosBuild_ts[&quot;src/features/ios-build/utils/parseEasIosBuild.ts&quot;]
-  module_src_features_ios_build_utils_parseEasIosConfig_ts[&quot;src/features/ios-build/utils/parseEasIosConfig.ts&quot;]
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts[&quot;src/features/provider-registration/composition/createEasDeploymentProvider.ts&quot;]
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts&quot;]
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.ts&quot;]
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts&quot;]
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.ts&quot;]
-  module_src_features_web_publication_utils_parseEasWebPublication_ts[&quot;src/features/web-publication/utils/parseEasWebPublication.ts&quot;]
-  module_src_types_android_ts[&quot;src/types/android.ts&quot;]
-  module_src_types_ios_ts[&quot;src/types/ios.ts&quot;]
-  module_src_types_process_ts[&quot;src/types/process.ts&quot;]
-  module_src_utils_resolveEasProcessEnvironmentAsync_ts[&quot;src/utils/resolveEasProcessEnvironmentAsync.ts&quot;]
-  module_src_utils_runEasProcessAsync_ts[&quot;src/utils/runEasProcessAsync.ts&quot;]
-  module_src_deployProviderEas_test_ts --&gt; module_src_deployProviderEas_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts --&gt; module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts --&gt; module_src_types_process_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts --&gt; module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts --&gt; module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts --&gt; module_src_types_process_ts
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts --&gt; module_src_features_android_build_utils_parseEasAndroidBuild_ts
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts --&gt; module_src_types_process_ts
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts --&gt; module_src_features_android_build_utils_parseEasAndroidConfig_ts
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts --&gt; module_src_types_process_ts
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_android_build_utils_parseEasAndroidConfig_ts --&gt; module_src_types_android_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts --&gt; module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts --&gt; module_src_types_process_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt; module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt; module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt; module_src_types_process_ts
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt; module_src_features_ios_build_utils_parseEasIosBuild_ts
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt; module_src_types_process_ts
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts --&gt; module_src_features_ios_build_utils_parseEasIosConfig_ts
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts --&gt; module_src_types_process_ts
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_ios_build_utils_parseEasIosConfig_ts --&gt; module_src_types_ios_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; module_src_utils_runEasProcessAsync_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts --&gt; module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts --&gt; module_src_types_process_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts --&gt; module_src_types_process_ts
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts --&gt; module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts --&gt; module_src_types_process_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts --&gt; module_src_features_web_publication_utils_parseEasWebPublication_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts --&gt; module_src_types_process_ts
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
-  module_src_utils_runEasProcessAsync_ts --&gt; module_src_types_process_ts
-</div>
-    <details>
-      <summary>View Mermaid source</summary>
-      <pre>graph LR
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="Module relationships diagrams/module-relationships.mmd"
+            >
+              <h3>Module relationships</h3>
+              <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
+              <div class="mermaid">
+                graph LR module_paradox_config_ts[&quot;paradox.config.ts&quot;]
+                module_src_deployProviderEas_test_ts[&quot;src/deployProviderEas.test.ts&quot;]
+                module_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts&quot;]
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts&quot;]
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts[&quot;src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts&quot;]
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts[&quot;src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts&quot;]
+                module_src_features_android_build_utils_parseEasAndroidBuild_ts[&quot;src/features/android-build/utils/parseEasAndroidBuild.ts&quot;]
+                module_src_features_android_build_utils_parseEasAndroidConfig_ts[&quot;src/features/android-build/utils/parseEasAndroidConfig.ts&quot;]
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts&quot;]
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.ts&quot;]
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts[&quot;src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts&quot;]
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts[&quot;src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts&quot;]
+                module_src_features_ios_build_utils_parseEasIosBuild_ts[&quot;src/features/ios-build/utils/parseEasIosBuild.ts&quot;]
+                module_src_features_ios_build_utils_parseEasIosConfig_ts[&quot;src/features/ios-build/utils/parseEasIosConfig.ts&quot;]
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts[&quot;src/features/provider-registration/composition/createEasDeploymentProvider.ts&quot;]
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts&quot;]
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.ts&quot;]
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts&quot;]
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.ts&quot;]
+                module_src_features_web_publication_utils_parseEasWebPublication_ts[&quot;src/features/web-publication/utils/parseEasWebPublication.ts&quot;]
+                module_src_types_android_ts[&quot;src/types/android.ts&quot;]
+                module_src_types_ios_ts[&quot;src/types/ios.ts&quot;]
+                module_src_types_process_ts[&quot;src/types/process.ts&quot;]
+                module_src_utils_resolveEasProcessEnvironmentAsync_ts[&quot;src/utils/resolveEasProcessEnvironmentAsync.ts&quot;]
+                module_src_utils_runEasProcessAsync_ts[&quot;src/utils/runEasProcessAsync.ts&quot;]
+                module_src_deployProviderEas_test_ts --&gt; module_src_deployProviderEas_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts
+                --&gt;
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                --&gt;
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                --&gt;
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                --&gt; module_src_features_android_build_utils_parseEasAndroidBuild_ts
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts
+                --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                --&gt; module_src_features_android_build_utils_parseEasAndroidConfig_ts
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts
+                --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_android_build_utils_parseEasAndroidConfig_ts --&gt;
+                module_src_types_android_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts --&gt;
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt;
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt;
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt;
+                module_src_features_ios_build_utils_parseEasIosBuild_ts
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts --&gt;
+                module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                --&gt; module_src_features_ios_build_utils_parseEasIosConfig_ts
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts
+                --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_ios_build_utils_parseEasIosConfig_ts --&gt;
+                module_src_types_ios_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt;
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt; module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt; module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt;
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt; module_src_utils_runEasProcessAsync_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts --&gt;
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts --&gt;
+                module_src_types_process_ts
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts --&gt;
+                module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts
+                --&gt;
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                --&gt; module_src_features_web_publication_utils_parseEasWebPublication_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                --&gt; module_src_types_process_ts
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts
+                --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
+                module_src_utils_runEasProcessAsync_ts --&gt; module_src_types_process_ts
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+graph LR
   module_paradox_config_ts[&quot;paradox.config.ts&quot;]
   module_src_deployProviderEas_test_ts[&quot;src/deployProviderEas.test.ts&quot;]
   module_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
@@ -747,43 +1209,46 @@
   module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts --&gt; module_src_utils_resolveEasProcessEnvironmentAsync_ts
   module_src_utils_runEasProcessAsync_ts --&gt; module_src_types_process_ts
 </pre>
-    </details>
-  </article><article class="item" data-search="Export graph diagrams/export-graph.mmd">
-    <h3>Export graph</h3>
-    <p class="muted"><code>diagrams/export-graph.mmd</code></p>
-    <div class="mermaid">graph LR
-  module_paradox_config_ts[&quot;paradox.config.ts&quot;]
-  module_src_deployProviderEas_test_ts[&quot;src/deployProviderEas.test.ts&quot;]
-  module_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts&quot;]
-  module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts&quot;]
-  module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts[&quot;src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts&quot;]
-  module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts[&quot;src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts&quot;]
-  module_src_features_android_build_utils_parseEasAndroidBuild_ts[&quot;src/features/android-build/utils/parseEasAndroidBuild.ts&quot;]
-  module_src_features_android_build_utils_parseEasAndroidConfig_ts[&quot;src/features/android-build/utils/parseEasAndroidConfig.ts&quot;]
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts&quot;]
-  module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.ts&quot;]
-  module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts[&quot;src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts&quot;]
-  module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts[&quot;src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts&quot;]
-  module_src_features_ios_build_utils_parseEasIosBuild_ts[&quot;src/features/ios-build/utils/parseEasIosBuild.ts&quot;]
-  module_src_features_ios_build_utils_parseEasIosConfig_ts[&quot;src/features/ios-build/utils/parseEasIosConfig.ts&quot;]
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts[&quot;src/features/provider-registration/composition/createEasDeploymentProvider.ts&quot;]
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts&quot;]
-  module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.ts&quot;]
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts&quot;]
-  module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.ts&quot;]
-  module_src_features_web_publication_utils_parseEasWebPublication_ts[&quot;src/features/web-publication/utils/parseEasWebPublication.ts&quot;]
-  module_src_types_android_ts[&quot;src/types/android.ts&quot;]
-  module_src_types_ios_ts[&quot;src/types/ios.ts&quot;]
-  module_src_types_process_ts[&quot;src/types/process.ts&quot;]
-  module_src_utils_resolveEasProcessEnvironmentAsync_ts[&quot;src/utils/resolveEasProcessEnvironmentAsync.ts&quot;]
-  module_src_utils_runEasProcessAsync_ts[&quot;src/utils/runEasProcessAsync.ts&quot;]
-  export_createEasDeploymentProvider[&quot;createEasDeploymentProvider&quot;]
-  module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; export_createEasDeploymentProvider
-</div>
-    <details>
-      <summary>View Mermaid source</summary>
-      <pre>graph LR
+              </details>
+            </article>
+            <article class="item" data-search="Export graph diagrams/export-graph.mmd">
+              <h3>Export graph</h3>
+              <p class="muted"><code>diagrams/export-graph.mmd</code></p>
+              <div class="mermaid">
+                graph LR module_paradox_config_ts[&quot;paradox.config.ts&quot;]
+                module_src_deployProviderEas_test_ts[&quot;src/deployProviderEas.test.ts&quot;]
+                module_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_test_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts&quot;]
+                module_src_features_android_build_adapters_outbound_createEasAndroidBuilder_ts[&quot;src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts&quot;]
+                module_src_features_android_build_application_use_cases_buildAndroidWithEasAsync_ts[&quot;src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts&quot;]
+                module_src_features_android_build_application_use_cases_inspectEasAndroidBuildAsync_ts[&quot;src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts&quot;]
+                module_src_features_android_build_utils_parseEasAndroidBuild_ts[&quot;src/features/android-build/utils/parseEasAndroidBuild.ts&quot;]
+                module_src_features_android_build_utils_parseEasAndroidConfig_ts[&quot;src/features/android-build/utils/parseEasAndroidConfig.ts&quot;]
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_test_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts&quot;]
+                module_src_features_ios_build_adapters_outbound_createEasIosBuilder_ts[&quot;src/features/ios-build/adapters/outbound/createEasIosBuilder.ts&quot;]
+                module_src_features_ios_build_application_use_cases_buildIosWithEasAsync_ts[&quot;src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts&quot;]
+                module_src_features_ios_build_application_use_cases_inspectEasIosBuildAsync_ts[&quot;src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts&quot;]
+                module_src_features_ios_build_utils_parseEasIosBuild_ts[&quot;src/features/ios-build/utils/parseEasIosBuild.ts&quot;]
+                module_src_features_ios_build_utils_parseEasIosConfig_ts[&quot;src/features/ios-build/utils/parseEasIosConfig.ts&quot;]
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts[&quot;src/features/provider-registration/composition/createEasDeploymentProvider.ts&quot;]
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_test_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts&quot;]
+                module_src_features_setup_adapters_outbound_createEasSetupAdapter_ts[&quot;src/features/setup/adapters/outbound/createEasSetupAdapter.ts&quot;]
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_test_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts&quot;]
+                module_src_features_web_publication_adapters_outbound_createEasWebPublisher_ts[&quot;src/features/web-publication/adapters/outbound/createEasWebPublisher.ts&quot;]
+                module_src_features_web_publication_utils_parseEasWebPublication_ts[&quot;src/features/web-publication/utils/parseEasWebPublication.ts&quot;]
+                module_src_types_android_ts[&quot;src/types/android.ts&quot;]
+                module_src_types_ios_ts[&quot;src/types/ios.ts&quot;]
+                module_src_types_process_ts[&quot;src/types/process.ts&quot;]
+                module_src_utils_resolveEasProcessEnvironmentAsync_ts[&quot;src/utils/resolveEasProcessEnvironmentAsync.ts&quot;]
+                module_src_utils_runEasProcessAsync_ts[&quot;src/utils/runEasProcessAsync.ts&quot;]
+                export_createEasDeploymentProvider[&quot;createEasDeploymentProvider&quot;]
+                module_src_features_provider_registration_composition_createEasDeploymentProvider_ts
+                --&gt; export_createEasDeploymentProvider
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+graph LR
   module_paradox_config_ts[&quot;paradox.config.ts&quot;]
   module_src_deployProviderEas_test_ts[&quot;src/deployProviderEas.test.ts&quot;]
   module_src_deployProviderEas_ts[&quot;src/deployProviderEas.ts&quot;]
@@ -813,28 +1278,44 @@
   export_createEasDeploymentProvider[&quot;createEasDeploymentProvider&quot;]
   module_src_features_provider_registration_composition_createEasDeploymentProvider_ts --&gt; export_createEasDeploymentProvider
 </pre>
-    </details>
-  </article><article class="item" data-search="createEasDeploymentProvider sequence diagrams/sequences/create-eas-deployment-provider.mmd">
-    <h3>createEasDeploymentProvider sequence</h3>
-    <p class="muted"><code>diagrams/sequences/create-eas-deployment-provider.mmd</code></p>
-    <div class="mermaid">sequenceDiagram
-  participant participant_createEasAndroidBuilder as createEasAndroidBuilder
-  participant participant_createEasDeploymentProvider as createEasDeploymentProvider
-  participant participant_createEasIosBuilder as createEasIosBuilder
-  participant participant_createEasSetupAdapter as createEasSetupAdapter
-  participant participant_createEasWebPublisher as createEasWebPublisher
-  participant_createEasDeploymentProvider-&gt;&gt;participant_createEasSetupAdapter: createEasSetupAdapter()
-  participant_createEasSetupAdapter--&gt;&gt;participant_createEasDeploymentProvider: return
-  participant_createEasDeploymentProvider-&gt;&gt;participant_createEasWebPublisher: createEasWebPublisher()
-  participant_createEasWebPublisher--&gt;&gt;participant_createEasDeploymentProvider: return
-  participant_createEasDeploymentProvider-&gt;&gt;participant_createEasAndroidBuilder: createEasAndroidBuilder()
-  participant_createEasAndroidBuilder--&gt;&gt;participant_createEasDeploymentProvider: return
-  participant_createEasDeploymentProvider-&gt;&gt;participant_createEasIosBuilder: createEasIosBuilder()
-  participant_createEasIosBuilder--&gt;&gt;participant_createEasDeploymentProvider: return
-</div>
-    <details>
-      <summary>View Mermaid source</summary>
-      <pre>sequenceDiagram
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="createEasDeploymentProvider sequence diagrams/sequences/create-eas-deployment-provider.mmd"
+            >
+              <h3>createEasDeploymentProvider sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/create-eas-deployment-provider.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_createEasAndroidBuilder as
+                createEasAndroidBuilder participant participant_createEasDeploymentProvider as
+                createEasDeploymentProvider participant participant_createEasIosBuilder as
+                createEasIosBuilder participant participant_createEasSetupAdapter as
+                createEasSetupAdapter participant participant_createEasWebPublisher as
+                createEasWebPublisher
+                participant_createEasDeploymentProvider-&gt;&gt;participant_createEasSetupAdapter:
+                createEasSetupAdapter()
+                participant_createEasSetupAdapter--&gt;&gt;participant_createEasDeploymentProvider:
+                return
+                participant_createEasDeploymentProvider-&gt;&gt;participant_createEasWebPublisher:
+                createEasWebPublisher()
+                participant_createEasWebPublisher--&gt;&gt;participant_createEasDeploymentProvider:
+                return
+                participant_createEasDeploymentProvider-&gt;&gt;participant_createEasAndroidBuilder:
+                createEasAndroidBuilder()
+                participant_createEasAndroidBuilder--&gt;&gt;participant_createEasDeploymentProvider:
+                return
+                participant_createEasDeploymentProvider-&gt;&gt;participant_createEasIosBuilder:
+                createEasIosBuilder()
+                participant_createEasIosBuilder--&gt;&gt;participant_createEasDeploymentProvider:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
   participant participant_createEasAndroidBuilder as createEasAndroidBuilder
   participant participant_createEasDeploymentProvider as createEasDeploymentProvider
   participant participant_createEasIosBuilder as createEasIosBuilder
@@ -849,271 +1330,683 @@
   participant_createEasDeploymentProvider-&gt;&gt;participant_createEasIosBuilder: createEasIosBuilder()
   participant_createEasIosBuilder--&gt;&gt;participant_createEasDeploymentProvider: return
 </pre>
-    </details>
-  </article>
-    </section>
+              </details>
+            </article>
+          </section>
         </section>
-        <section id="view-src-features-android-build-adapters-outbound-createeasandroidbuilder-test-ts" class="view" data-view="src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts" hidden>
-    <section class="panel">
-      <h2>src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts</h2>
-      <article class="item" data-search="androidConfig src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts ">
-    <h3>androidConfig</h3>
-    <p class="muted"><code>src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts:12:1</code></p>
-    <p class="empty">No description available.</p>
-  </article><article class="item" data-search="runProcess src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts ">
-    <h3>runProcess</h3>
-    <p class="muted"><code>src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts:21:9</code></p>
-    <p class="empty">No description available.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-android-build-adapters-outbound-createeasandroidbuilder-ts" class="view" data-view="src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts" hidden>
-    <section class="panel">
-      <h2>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts</h2>
-      <article class="item" data-search="createEasAndroidBuilder src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts Create the EAS Android builder implementing the provider-neutral build port.">
-    <h3>createEasAndroidBuilder</h3>
-    <p class="muted"><code>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts:8:1</code></p>
-    <p>Create the EAS Android builder implementing the provider-neutral build port.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-android-build-application-use-cases-buildandroidwitheasasync-ts" class="view" data-view="src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts" hidden>
-    <section class="panel">
-      <h2>src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts</h2>
-      <article class="item" data-search="buildAndroidWithEasAsync src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts Run one non-interactive EAS Android build and normalize its finished artifact.">
-    <h3>buildAndroidWithEasAsync</h3>
-    <p class="muted"><code>src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts:12:1</code></p>
-    <p>Run one non-interactive EAS Android build and normalize its finished artifact.</p>
-  </article><article class="item" data-search="parseJson src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts Parse process JSON output without throwing across the adapter boundary.">
-    <h3>parseJson</h3>
-    <p class="muted"><code>src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts:83:1</code></p>
-    <p>Parse process JSON output without throwing across the adapter boundary.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-android-build-application-use-cases-inspecteasandroidbuildasync-ts" class="view" data-view="src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts" hidden>
-    <section class="panel">
-      <h2>src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts</h2>
-      <article class="item" data-search="inspectEasAndroidBuildAsync src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts Inspect EAS Android config and produce the local project fingerprint used to gate builds.">
-    <h3>inspectEasAndroidBuildAsync</h3>
-    <p class="muted"><code>src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts:27:1</code></p>
-    <p>Inspect EAS Android config and produce the local project fingerprint used to gate builds.</p>
-  </article><article class="item" data-search="parseJson src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts Parse process JSON output without throwing across the adapter boundary.">
-    <h3>parseJson</h3>
-    <p class="muted"><code>src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts:102:1</code></p>
-    <p>Parse process JSON output without throwing across the adapter boundary.</p>
-  </article><article class="item" data-search="isFingerprintResult src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts Validate one Expo fingerprint result.">
-    <h3>isFingerprintResult</h3>
-    <p class="muted"><code>src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts:111:1</code></p>
-    <p>Validate one Expo fingerprint result.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-android-build-utils-parseeasandroidbuild-ts" class="view" data-view="src/features/android-build/utils/parseEasAndroidBuild.ts" hidden>
-    <section class="panel">
-      <h2>src/features/android-build/utils/parseEasAndroidBuild.ts</h2>
-      <article class="item" data-search="parseEasAndroidBuild src/features/android-build/utils/parseEasAndroidBuild.ts Normalize one finished EAS Android build into the provider-neutral artifact contract.">
-    <h3>parseEasAndroidBuild</h3>
-    <p class="muted"><code>src/features/android-build/utils/parseEasAndroidBuild.ts:6:1</code></p>
-    <p>Normalize one finished EAS Android build into the provider-neutral artifact contract.</p>
-  </article><article class="item" data-search="parseVersionCode src/features/android-build/utils/parseEasAndroidBuild.ts Parse a positive Android version code from EAS output.">
-    <h3>parseVersionCode</h3>
-    <p class="muted"><code>src/features/android-build/utils/parseEasAndroidBuild.ts:32:1</code></p>
-    <p>Parse a positive Android version code from EAS output.</p>
-  </article><article class="item" data-search="isHttpUrl src/features/android-build/utils/parseEasAndroidBuild.ts Validate one HTTP(S) artifact URL returned by EAS.">
-    <h3>isHttpUrl</h3>
-    <p class="muted"><code>src/features/android-build/utils/parseEasAndroidBuild.ts:39:1</code></p>
-    <p>Validate one HTTP(S) artifact URL returned by EAS.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-android-build-utils-parseeasandroidconfig-ts" class="view" data-view="src/features/android-build/utils/parseEasAndroidConfig.ts" hidden>
-    <section class="panel">
-      <h2>src/features/android-build/utils/parseEasAndroidConfig.ts</h2>
-      <article class="item" data-search="parseEasAndroidConfig src/features/android-build/utils/parseEasAndroidConfig.ts Validate EAS Android config output for package identity, store readiness, and profile environment.">
-    <h3>parseEasAndroidConfig</h3>
-    <p class="muted"><code>src/features/android-build/utils/parseEasAndroidConfig.ts:8:1</code></p>
-    <p>Validate EAS Android config output for package identity, store readiness, and profile environment.</p>
-  </article><article class="item" data-search="isStoreProfile src/features/android-build/utils/parseEasAndroidConfig.ts Check whether an EAS Android build profile produces a credentialed store artifact.">
-    <h3>isStoreProfile</h3>
-    <p class="muted"><code>src/features/android-build/utils/parseEasAndroidConfig.ts:43:1</code></p>
-    <p>Check whether an EAS Android build profile produces a credentialed store artifact.</p>
-  </article><article class="item" data-search="normalizeEnvironment src/features/android-build/utils/parseEasAndroidConfig.ts Normalize EAS profile environment values while rejecting non-string entries.">
-    <h3>normalizeEnvironment</h3>
-    <p class="muted"><code>src/features/android-build/utils/parseEasAndroidConfig.ts:56:1</code></p>
-    <p>Normalize EAS profile environment values while rejecting non-string entries.</p>
-  </article><article class="item" data-search="failure src/features/android-build/utils/parseEasAndroidConfig.ts Build one provider-neutral Android config failure.">
-    <h3>failure</h3>
-    <p class="muted"><code>src/features/android-build/utils/parseEasAndroidConfig.ts:67:1</code></p>
-    <p>Build one provider-neutral Android config failure.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-ios-build-adapters-outbound-createeasiosbuilder-test-ts" class="view" data-view="src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts" hidden>
-    <section class="panel">
-      <h2>src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts</h2>
-      <article class="item" data-search="iosConfig src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts ">
-    <h3>iosConfig</h3>
-    <p class="muted"><code>src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts:12:1</code></p>
-    <p class="empty">No description available.</p>
-  </article><article class="item" data-search="runProcess src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts ">
-    <h3>runProcess</h3>
-    <p class="muted"><code>src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts:21:9</code></p>
-    <p class="empty">No description available.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-ios-build-adapters-outbound-createeasiosbuilder-ts" class="view" data-view="src/features/ios-build/adapters/outbound/createEasIosBuilder.ts" hidden>
-    <section class="panel">
-      <h2>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts</h2>
-      <article class="item" data-search="createEasIosBuilder src/features/ios-build/adapters/outbound/createEasIosBuilder.ts Create the EAS iOS builder implementing the provider-neutral build port.">
-    <h3>createEasIosBuilder</h3>
-    <p class="muted"><code>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts:8:1</code></p>
-    <p>Create the EAS iOS builder implementing the provider-neutral build port.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-ios-build-application-use-cases-buildioswitheasasync-ts" class="view" data-view="src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts" hidden>
-    <section class="panel">
-      <h2>src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts</h2>
-      <article class="item" data-search="buildIosWithEasAsync src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts Run one non-interactive EAS iOS build and normalize its finished artifact.">
-    <h3>buildIosWithEasAsync</h3>
-    <p class="muted"><code>src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts:12:1</code></p>
-    <p>Run one non-interactive EAS iOS build and normalize its finished artifact.</p>
-  </article><article class="item" data-search="parseJson src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts Parse process JSON output without throwing across the adapter boundary.">
-    <h3>parseJson</h3>
-    <p class="muted"><code>src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts:86:1</code></p>
-    <p>Parse process JSON output without throwing across the adapter boundary.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-ios-build-application-use-cases-inspecteasiosbuildasync-ts" class="view" data-view="src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts" hidden>
-    <section class="panel">
-      <h2>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts</h2>
-      <article class="item" data-search="inspectEasIosBuildAsync src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts Inspect EAS iOS config and produce the local project fingerprint used to gate builds.">
-    <h3>inspectEasIosBuildAsync</h3>
-    <p class="muted"><code>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts:24:1</code></p>
-    <p>Inspect EAS iOS config and produce the local project fingerprint used to gate builds.</p>
-  </article><article class="item" data-search="parseJson src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts Parse process JSON output without throwing across the adapter boundary.">
-    <h3>parseJson</h3>
-    <p class="muted"><code>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts:99:1</code></p>
-    <p>Parse process JSON output without throwing across the adapter boundary.</p>
-  </article><article class="item" data-search="isFingerprintResult src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts Validate one Expo fingerprint result.">
-    <h3>isFingerprintResult</h3>
-    <p class="muted"><code>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts:108:1</code></p>
-    <p>Validate one Expo fingerprint result.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-ios-build-utils-parseeasiosbuild-ts" class="view" data-view="src/features/ios-build/utils/parseEasIosBuild.ts" hidden>
-    <section class="panel">
-      <h2>src/features/ios-build/utils/parseEasIosBuild.ts</h2>
-      <article class="item" data-search="parseEasIosBuild src/features/ios-build/utils/parseEasIosBuild.ts Normalize one finished EAS iOS build into the provider-neutral artifact contract.">
-    <h3>parseEasIosBuild</h3>
-    <p class="muted"><code>src/features/ios-build/utils/parseEasIosBuild.ts:6:1</code></p>
-    <p>Normalize one finished EAS iOS build into the provider-neutral artifact contract.</p>
-  </article><article class="item" data-search="isHttpUrl src/features/ios-build/utils/parseEasIosBuild.ts Validate one HTTP(S) artifact URL returned by EAS.">
-    <h3>isHttpUrl</h3>
-    <p class="muted"><code>src/features/ios-build/utils/parseEasIosBuild.ts:32:1</code></p>
-    <p>Validate one HTTP(S) artifact URL returned by EAS.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-ios-build-utils-parseeasiosconfig-ts" class="view" data-view="src/features/ios-build/utils/parseEasIosConfig.ts" hidden>
-    <section class="panel">
-      <h2>src/features/ios-build/utils/parseEasIosConfig.ts</h2>
-      <article class="item" data-search="parseEasIosConfig src/features/ios-build/utils/parseEasIosConfig.ts Validate EAS iOS config output for bundle identity, store readiness, and profile environment.">
-    <h3>parseEasIosConfig</h3>
-    <p class="muted"><code>src/features/ios-build/utils/parseEasIosConfig.ts:8:1</code></p>
-    <p>Validate EAS iOS config output for bundle identity, store readiness, and profile environment.</p>
-  </article><article class="item" data-search="isStoreProfile src/features/ios-build/utils/parseEasIosConfig.ts Check whether an EAS iOS build profile produces a credentialed App Store artifact.">
-    <h3>isStoreProfile</h3>
-    <p class="muted"><code>src/features/ios-build/utils/parseEasIosConfig.ts:40:1</code></p>
-    <p>Check whether an EAS iOS build profile produces a credentialed App Store artifact.</p>
-  </article><article class="item" data-search="normalizeEnvironment src/features/ios-build/utils/parseEasIosConfig.ts Normalize EAS profile environment values while rejecting non-string entries.">
-    <h3>normalizeEnvironment</h3>
-    <p class="muted"><code>src/features/ios-build/utils/parseEasIosConfig.ts:50:1</code></p>
-    <p>Normalize EAS profile environment values while rejecting non-string entries.</p>
-  </article><article class="item" data-search="failure src/features/ios-build/utils/parseEasIosConfig.ts Build one provider-neutral iOS config failure.">
-    <h3>failure</h3>
-    <p class="muted"><code>src/features/ios-build/utils/parseEasIosConfig.ts:61:1</code></p>
-    <p>Build one provider-neutral iOS config failure.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-provider-registration-composition-createeasdeploymentprovider-ts" class="view" data-view="src/features/provider-registration/composition/createEasDeploymentProvider.ts" hidden>
-    <section class="panel">
-      <h2>src/features/provider-registration/composition/createEasDeploymentProvider.ts</h2>
-      <article class="item" data-search="createEasDeploymentProvider src/features/provider-registration/composition/createEasDeploymentProvider.ts Create the canonical EAS provider registration consumed by the Deploy composition root.">
-    <h3>createEasDeploymentProvider</h3>
-    <p class="muted"><code>src/features/provider-registration/composition/createEasDeploymentProvider.ts:14:1</code></p>
-    <p>Create the canonical EAS provider registration consumed by the Deploy composition root.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-setup-adapters-outbound-createeassetupadapter-test-ts" class="view" data-view="src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts" hidden>
-    <section class="panel">
-      <h2>src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts</h2>
-      <article class="item" data-search="runProcess src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts ">
-    <h3>runProcess</h3>
-    <p class="muted"><code>src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts:10:9</code></p>
-    <p class="empty">No description available.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-setup-adapters-outbound-createeassetupadapter-ts" class="view" data-view="src/features/setup/adapters/outbound/createEasSetupAdapter.ts" hidden>
-    <section class="panel">
-      <h2>src/features/setup/adapters/outbound/createEasSetupAdapter.ts</h2>
-      <article class="item" data-search="createEasSetupAdapter src/features/setup/adapters/outbound/createEasSetupAdapter.ts Create the EAS setup adapter used by Deploy to inspect authentication and project linkage.">
-    <h3>createEasSetupAdapter</h3>
-    <p class="muted"><code>src/features/setup/adapters/outbound/createEasSetupAdapter.ts:11:1</code></p>
-    <p>Create the EAS setup adapter used by Deploy to inspect authentication and project linkage.</p>
-  </article><article class="item" data-search="createCapabilityStates src/features/setup/adapters/outbound/createEasSetupAdapter.ts Map an optional deployment target to the EAS capabilities that setup inspection unlocks.">
-    <h3>createCapabilityStates</h3>
-    <p class="muted"><code>src/features/setup/adapters/outbound/createEasSetupAdapter.ts:106:1</code></p>
-    <p>Map an optional deployment target to the EAS capabilities that setup inspection unlocks.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-web-publication-adapters-outbound-createeaswebpublisher-test-ts" class="view" data-view="src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts" hidden>
-    <section class="panel">
-      <h2>src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts</h2>
-      <article class="item" data-search="runProcess src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts ">
-    <h3>runProcess</h3>
-    <p class="muted"><code>src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts:10:9</code></p>
-    <p class="empty">No description available.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-web-publication-adapters-outbound-createeaswebpublisher-ts" class="view" data-view="src/features/web-publication/adapters/outbound/createEasWebPublisher.ts" hidden>
-    <section class="panel">
-      <h2>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts</h2>
-      <article class="item" data-search="createEasWebPublisher src/features/web-publication/adapters/outbound/createEasWebPublisher.ts Create the EAS Hosting publisher implementing the provider-neutral web publication port.">
-    <h3>createEasWebPublisher</h3>
-    <p class="muted"><code>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts:8:1</code></p>
-    <p>Create the EAS Hosting publisher implementing the provider-neutral web publication port.</p>
-  </article><article class="item" data-search="parseJson src/features/web-publication/adapters/outbound/createEasWebPublisher.ts Parse provider JSON output without throwing across the adapter boundary.">
-    <h3>parseJson</h3>
-    <p class="muted"><code>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts:85:1</code></p>
-    <p>Parse provider JSON output without throwing across the adapter boundary.</p>
-  </article>
-    </section>
-  </section><section id="view-src-features-web-publication-utils-parseeaswebpublication-ts" class="view" data-view="src/features/web-publication/utils/parseEasWebPublication.ts" hidden>
-    <section class="panel">
-      <h2>src/features/web-publication/utils/parseEasWebPublication.ts</h2>
-      <article class="item" data-search="parseEasWebPublication src/features/web-publication/utils/parseEasWebPublication.ts Normalize one EAS Hosting JSON payload into the provider-neutral web publication contract.">
-    <h3>parseEasWebPublication</h3>
-    <p class="muted"><code>src/features/web-publication/utils/parseEasWebPublication.ts:6:1</code></p>
-    <p>Normalize one EAS Hosting JSON payload into the provider-neutral web publication contract.</p>
-  </article><article class="item" data-search="isHttpUrl src/features/web-publication/utils/parseEasWebPublication.ts Validate one HTTP(S) URL returned by EAS Hosting.">
-    <h3>isHttpUrl</h3>
-    <p class="muted"><code>src/features/web-publication/utils/parseEasWebPublication.ts:23:1</code></p>
-    <p>Validate one HTTP(S) URL returned by EAS Hosting.</p>
-  </article>
-    </section>
-  </section><section id="view-src-utils-resolveeasprocessenvironmentasync-ts" class="view" data-view="src/utils/resolveEasProcessEnvironmentAsync.ts" hidden>
-    <section class="panel">
-      <h2>src/utils/resolveEasProcessEnvironmentAsync.ts</h2>
-      <article class="item" data-search="resolveEasProcessEnvironmentAsync src/utils/resolveEasProcessEnvironmentAsync.ts Resolve an optional EAS token credential into a child-process environment without leaking it.">
-    <h3>resolveEasProcessEnvironmentAsync</h3>
-    <p class="muted"><code>src/utils/resolveEasProcessEnvironmentAsync.ts:13:1</code></p>
-    <p>Resolve an optional EAS token credential into a child-process environment without leaking it.</p>
-  </article>
-    </section>
-  </section><section id="view-src-utils-runeasprocessasync-ts" class="view" data-view="src/utils/runEasProcessAsync.ts" hidden>
-    <section class="panel">
-      <h2>src/utils/runEasProcessAsync.ts</h2>
-      <article class="item" data-search="runEasProcessAsync src/utils/runEasProcessAsync.ts Execute one provider-owned process and capture stdout, stderr, and its exit code.">
-    <h3>runEasProcessAsync</h3>
-    <p class="muted"><code>src/utils/runEasProcessAsync.ts:6:14</code></p>
-    <p>Execute one provider-owned process and capture stdout, stderr, and its exit code.</p>
-  </article>
-    </section>
-  </section>
+        <section
+          id="view-src-features-android-build-adapters-outbound-createeasandroidbuilder-test-ts"
+          class="view"
+          data-view="src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts</h2>
+            <article
+              class="item"
+              data-search="androidConfig src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts "
+            >
+              <h3>androidConfig</h3>
+              <p class="muted">
+                <code
+                  >src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts:12:1</code
+                >
+              </p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="runProcess src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts "
+            >
+              <h3>runProcess</h3>
+              <p class="muted">
+                <code
+                  >src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts:21:9</code
+                >
+              </p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-android-build-adapters-outbound-createeasandroidbuilder-ts"
+          class="view"
+          data-view="src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts</h2>
+            <article
+              class="item"
+              data-search="createEasAndroidBuilder src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts Create the EAS Android builder implementing the provider-neutral build port."
+            >
+              <h3>createEasAndroidBuilder</h3>
+              <p class="muted">
+                <code
+                  >src/features/android-build/adapters/outbound/createEasAndroidBuilder.ts:8:1</code
+                >
+              </p>
+              <p>Create the EAS Android builder implementing the provider-neutral build port.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-android-build-application-use-cases-buildandroidwitheasasync-ts"
+          class="view"
+          data-view="src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts</h2>
+            <article
+              class="item"
+              data-search="buildAndroidWithEasAsync src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts Run one non-interactive EAS Android build and normalize its finished artifact."
+            >
+              <h3>buildAndroidWithEasAsync</h3>
+              <p class="muted">
+                <code
+                  >src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts:12:1</code
+                >
+              </p>
+              <p>Run one non-interactive EAS Android build and normalize its finished artifact.</p>
+            </article>
+            <article
+              class="item"
+              data-search="parseJson src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts Parse process JSON output without throwing across the adapter boundary."
+            >
+              <h3>parseJson</h3>
+              <p class="muted">
+                <code
+                  >src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts:83:1</code
+                >
+              </p>
+              <p>Parse process JSON output without throwing across the adapter boundary.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-android-build-application-use-cases-inspecteasandroidbuildasync-ts"
+          class="view"
+          data-view="src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts</h2>
+            <article
+              class="item"
+              data-search="inspectEasAndroidBuildAsync src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts Inspect EAS Android config and produce the local project fingerprint used to gate builds."
+            >
+              <h3>inspectEasAndroidBuildAsync</h3>
+              <p class="muted">
+                <code
+                  >src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts:27:1</code
+                >
+              </p>
+              <p>
+                Inspect EAS Android config and produce the local project fingerprint used to gate
+                builds.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="parseJson src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts Parse process JSON output without throwing across the adapter boundary."
+            >
+              <h3>parseJson</h3>
+              <p class="muted">
+                <code
+                  >src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts:102:1</code
+                >
+              </p>
+              <p>Parse process JSON output without throwing across the adapter boundary.</p>
+            </article>
+            <article
+              class="item"
+              data-search="isFingerprintResult src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts Validate one Expo fingerprint result."
+            >
+              <h3>isFingerprintResult</h3>
+              <p class="muted">
+                <code
+                  >src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts:111:1</code
+                >
+              </p>
+              <p>Validate one Expo fingerprint result.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-android-build-utils-parseeasandroidbuild-ts"
+          class="view"
+          data-view="src/features/android-build/utils/parseEasAndroidBuild.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/android-build/utils/parseEasAndroidBuild.ts</h2>
+            <article
+              class="item"
+              data-search="parseEasAndroidBuild src/features/android-build/utils/parseEasAndroidBuild.ts Normalize one finished EAS Android build into the provider-neutral artifact contract."
+            >
+              <h3>parseEasAndroidBuild</h3>
+              <p class="muted">
+                <code>src/features/android-build/utils/parseEasAndroidBuild.ts:6:1</code>
+              </p>
+              <p>
+                Normalize one finished EAS Android build into the provider-neutral artifact
+                contract.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="parseVersionCode src/features/android-build/utils/parseEasAndroidBuild.ts Parse a positive Android version code from EAS output."
+            >
+              <h3>parseVersionCode</h3>
+              <p class="muted">
+                <code>src/features/android-build/utils/parseEasAndroidBuild.ts:32:1</code>
+              </p>
+              <p>Parse a positive Android version code from EAS output.</p>
+            </article>
+            <article
+              class="item"
+              data-search="isHttpUrl src/features/android-build/utils/parseEasAndroidBuild.ts Validate one HTTP(S) artifact URL returned by EAS."
+            >
+              <h3>isHttpUrl</h3>
+              <p class="muted">
+                <code>src/features/android-build/utils/parseEasAndroidBuild.ts:39:1</code>
+              </p>
+              <p>Validate one HTTP(S) artifact URL returned by EAS.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-android-build-utils-parseeasandroidconfig-ts"
+          class="view"
+          data-view="src/features/android-build/utils/parseEasAndroidConfig.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/android-build/utils/parseEasAndroidConfig.ts</h2>
+            <article
+              class="item"
+              data-search="parseEasAndroidConfig src/features/android-build/utils/parseEasAndroidConfig.ts Validate EAS Android config output for package identity, store readiness, and profile environment."
+            >
+              <h3>parseEasAndroidConfig</h3>
+              <p class="muted">
+                <code>src/features/android-build/utils/parseEasAndroidConfig.ts:8:1</code>
+              </p>
+              <p>
+                Validate EAS Android config output for package identity, store readiness, and
+                profile environment.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="isStoreProfile src/features/android-build/utils/parseEasAndroidConfig.ts Check whether an EAS Android build profile produces a credentialed store artifact."
+            >
+              <h3>isStoreProfile</h3>
+              <p class="muted">
+                <code>src/features/android-build/utils/parseEasAndroidConfig.ts:43:1</code>
+              </p>
+              <p>
+                Check whether an EAS Android build profile produces a credentialed store artifact.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeEnvironment src/features/android-build/utils/parseEasAndroidConfig.ts Normalize EAS profile environment values while rejecting non-string entries."
+            >
+              <h3>normalizeEnvironment</h3>
+              <p class="muted">
+                <code>src/features/android-build/utils/parseEasAndroidConfig.ts:56:1</code>
+              </p>
+              <p>Normalize EAS profile environment values while rejecting non-string entries.</p>
+            </article>
+            <article
+              class="item"
+              data-search="failure src/features/android-build/utils/parseEasAndroidConfig.ts Build one provider-neutral Android config failure."
+            >
+              <h3>failure</h3>
+              <p class="muted">
+                <code>src/features/android-build/utils/parseEasAndroidConfig.ts:67:1</code>
+              </p>
+              <p>Build one provider-neutral Android config failure.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-ios-build-adapters-outbound-createeasiosbuilder-test-ts"
+          class="view"
+          data-view="src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts</h2>
+            <article
+              class="item"
+              data-search="iosConfig src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts "
+            >
+              <h3>iosConfig</h3>
+              <p class="muted">
+                <code
+                  >src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts:12:1</code
+                >
+              </p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="runProcess src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts "
+            >
+              <h3>runProcess</h3>
+              <p class="muted">
+                <code
+                  >src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts:21:9</code
+                >
+              </p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-ios-build-adapters-outbound-createeasiosbuilder-ts"
+          class="view"
+          data-view="src/features/ios-build/adapters/outbound/createEasIosBuilder.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts</h2>
+            <article
+              class="item"
+              data-search="createEasIosBuilder src/features/ios-build/adapters/outbound/createEasIosBuilder.ts Create the EAS iOS builder implementing the provider-neutral build port."
+            >
+              <h3>createEasIosBuilder</h3>
+              <p class="muted">
+                <code>src/features/ios-build/adapters/outbound/createEasIosBuilder.ts:8:1</code>
+              </p>
+              <p>Create the EAS iOS builder implementing the provider-neutral build port.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-ios-build-application-use-cases-buildioswitheasasync-ts"
+          class="view"
+          data-view="src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts</h2>
+            <article
+              class="item"
+              data-search="buildIosWithEasAsync src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts Run one non-interactive EAS iOS build and normalize its finished artifact."
+            >
+              <h3>buildIosWithEasAsync</h3>
+              <p class="muted">
+                <code
+                  >src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts:12:1</code
+                >
+              </p>
+              <p>Run one non-interactive EAS iOS build and normalize its finished artifact.</p>
+            </article>
+            <article
+              class="item"
+              data-search="parseJson src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts Parse process JSON output without throwing across the adapter boundary."
+            >
+              <h3>parseJson</h3>
+              <p class="muted">
+                <code
+                  >src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts:86:1</code
+                >
+              </p>
+              <p>Parse process JSON output without throwing across the adapter boundary.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-ios-build-application-use-cases-inspecteasiosbuildasync-ts"
+          class="view"
+          data-view="src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts</h2>
+            <article
+              class="item"
+              data-search="inspectEasIosBuildAsync src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts Inspect EAS iOS config and produce the local project fingerprint used to gate builds."
+            >
+              <h3>inspectEasIosBuildAsync</h3>
+              <p class="muted">
+                <code
+                  >src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts:24:1</code
+                >
+              </p>
+              <p>
+                Inspect EAS iOS config and produce the local project fingerprint used to gate
+                builds.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="parseJson src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts Parse process JSON output without throwing across the adapter boundary."
+            >
+              <h3>parseJson</h3>
+              <p class="muted">
+                <code
+                  >src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts:99:1</code
+                >
+              </p>
+              <p>Parse process JSON output without throwing across the adapter boundary.</p>
+            </article>
+            <article
+              class="item"
+              data-search="isFingerprintResult src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts Validate one Expo fingerprint result."
+            >
+              <h3>isFingerprintResult</h3>
+              <p class="muted">
+                <code
+                  >src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts:108:1</code
+                >
+              </p>
+              <p>Validate one Expo fingerprint result.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-ios-build-utils-parseeasiosbuild-ts"
+          class="view"
+          data-view="src/features/ios-build/utils/parseEasIosBuild.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/ios-build/utils/parseEasIosBuild.ts</h2>
+            <article
+              class="item"
+              data-search="parseEasIosBuild src/features/ios-build/utils/parseEasIosBuild.ts Normalize one finished EAS iOS build into the provider-neutral artifact contract."
+            >
+              <h3>parseEasIosBuild</h3>
+              <p class="muted"><code>src/features/ios-build/utils/parseEasIosBuild.ts:6:1</code></p>
+              <p>
+                Normalize one finished EAS iOS build into the provider-neutral artifact contract.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="isHttpUrl src/features/ios-build/utils/parseEasIosBuild.ts Validate one HTTP(S) artifact URL returned by EAS."
+            >
+              <h3>isHttpUrl</h3>
+              <p class="muted">
+                <code>src/features/ios-build/utils/parseEasIosBuild.ts:32:1</code>
+              </p>
+              <p>Validate one HTTP(S) artifact URL returned by EAS.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-ios-build-utils-parseeasiosconfig-ts"
+          class="view"
+          data-view="src/features/ios-build/utils/parseEasIosConfig.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/ios-build/utils/parseEasIosConfig.ts</h2>
+            <article
+              class="item"
+              data-search="parseEasIosConfig src/features/ios-build/utils/parseEasIosConfig.ts Validate EAS iOS config output for bundle identity, store readiness, and profile environment."
+            >
+              <h3>parseEasIosConfig</h3>
+              <p class="muted">
+                <code>src/features/ios-build/utils/parseEasIosConfig.ts:8:1</code>
+              </p>
+              <p>
+                Validate EAS iOS config output for bundle identity, store readiness, and profile
+                environment.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="isStoreProfile src/features/ios-build/utils/parseEasIosConfig.ts Check whether an EAS iOS build profile produces a credentialed App Store artifact."
+            >
+              <h3>isStoreProfile</h3>
+              <p class="muted">
+                <code>src/features/ios-build/utils/parseEasIosConfig.ts:40:1</code>
+              </p>
+              <p>
+                Check whether an EAS iOS build profile produces a credentialed App Store artifact.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="normalizeEnvironment src/features/ios-build/utils/parseEasIosConfig.ts Normalize EAS profile environment values while rejecting non-string entries."
+            >
+              <h3>normalizeEnvironment</h3>
+              <p class="muted">
+                <code>src/features/ios-build/utils/parseEasIosConfig.ts:50:1</code>
+              </p>
+              <p>Normalize EAS profile environment values while rejecting non-string entries.</p>
+            </article>
+            <article
+              class="item"
+              data-search="failure src/features/ios-build/utils/parseEasIosConfig.ts Build one provider-neutral iOS config failure."
+            >
+              <h3>failure</h3>
+              <p class="muted">
+                <code>src/features/ios-build/utils/parseEasIosConfig.ts:61:1</code>
+              </p>
+              <p>Build one provider-neutral iOS config failure.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-provider-registration-composition-createeasdeploymentprovider-ts"
+          class="view"
+          data-view="src/features/provider-registration/composition/createEasDeploymentProvider.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/provider-registration/composition/createEasDeploymentProvider.ts</h2>
+            <article
+              class="item"
+              data-search="createEasDeploymentProvider src/features/provider-registration/composition/createEasDeploymentProvider.ts Create the canonical EAS provider registration consumed by the Deploy composition root."
+            >
+              <h3>createEasDeploymentProvider</h3>
+              <p class="muted">
+                <code
+                  >src/features/provider-registration/composition/createEasDeploymentProvider.ts:14:1</code
+                >
+              </p>
+              <p>
+                Create the canonical EAS provider registration consumed by the Deploy composition
+                root.
+              </p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-setup-adapters-outbound-createeassetupadapter-test-ts"
+          class="view"
+          data-view="src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts</h2>
+            <article
+              class="item"
+              data-search="runProcess src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts "
+            >
+              <h3>runProcess</h3>
+              <p class="muted">
+                <code>src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts:10:9</code>
+              </p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-setup-adapters-outbound-createeassetupadapter-ts"
+          class="view"
+          data-view="src/features/setup/adapters/outbound/createEasSetupAdapter.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/setup/adapters/outbound/createEasSetupAdapter.ts</h2>
+            <article
+              class="item"
+              data-search="createEasSetupAdapter src/features/setup/adapters/outbound/createEasSetupAdapter.ts Create the EAS setup adapter used by Deploy to inspect authentication and project linkage."
+            >
+              <h3>createEasSetupAdapter</h3>
+              <p class="muted">
+                <code>src/features/setup/adapters/outbound/createEasSetupAdapter.ts:11:1</code>
+              </p>
+              <p>
+                Create the EAS setup adapter used by Deploy to inspect authentication and project
+                linkage.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="createCapabilityStates src/features/setup/adapters/outbound/createEasSetupAdapter.ts Map an optional deployment target to the EAS capabilities that setup inspection unlocks."
+            >
+              <h3>createCapabilityStates</h3>
+              <p class="muted">
+                <code>src/features/setup/adapters/outbound/createEasSetupAdapter.ts:106:1</code>
+              </p>
+              <p>
+                Map an optional deployment target to the EAS capabilities that setup inspection
+                unlocks.
+              </p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-web-publication-adapters-outbound-createeaswebpublisher-test-ts"
+          class="view"
+          data-view="src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts</h2>
+            <article
+              class="item"
+              data-search="runProcess src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts "
+            >
+              <h3>runProcess</h3>
+              <p class="muted">
+                <code
+                  >src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts:10:9</code
+                >
+              </p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-web-publication-adapters-outbound-createeaswebpublisher-ts"
+          class="view"
+          data-view="src/features/web-publication/adapters/outbound/createEasWebPublisher.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/web-publication/adapters/outbound/createEasWebPublisher.ts</h2>
+            <article
+              class="item"
+              data-search="createEasWebPublisher src/features/web-publication/adapters/outbound/createEasWebPublisher.ts Create the EAS Hosting publisher implementing the provider-neutral web publication port."
+            >
+              <h3>createEasWebPublisher</h3>
+              <p class="muted">
+                <code
+                  >src/features/web-publication/adapters/outbound/createEasWebPublisher.ts:8:1</code
+                >
+              </p>
+              <p>
+                Create the EAS Hosting publisher implementing the provider-neutral web publication
+                port.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="parseJson src/features/web-publication/adapters/outbound/createEasWebPublisher.ts Parse provider JSON output without throwing across the adapter boundary."
+            >
+              <h3>parseJson</h3>
+              <p class="muted">
+                <code
+                  >src/features/web-publication/adapters/outbound/createEasWebPublisher.ts:85:1</code
+                >
+              </p>
+              <p>Parse provider JSON output without throwing across the adapter boundary.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-features-web-publication-utils-parseeaswebpublication-ts"
+          class="view"
+          data-view="src/features/web-publication/utils/parseEasWebPublication.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/features/web-publication/utils/parseEasWebPublication.ts</h2>
+            <article
+              class="item"
+              data-search="parseEasWebPublication src/features/web-publication/utils/parseEasWebPublication.ts Normalize one EAS Hosting JSON payload into the provider-neutral web publication contract."
+            >
+              <h3>parseEasWebPublication</h3>
+              <p class="muted">
+                <code>src/features/web-publication/utils/parseEasWebPublication.ts:6:1</code>
+              </p>
+              <p>
+                Normalize one EAS Hosting JSON payload into the provider-neutral web publication
+                contract.
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="isHttpUrl src/features/web-publication/utils/parseEasWebPublication.ts Validate one HTTP(S) URL returned by EAS Hosting."
+            >
+              <h3>isHttpUrl</h3>
+              <p class="muted">
+                <code>src/features/web-publication/utils/parseEasWebPublication.ts:23:1</code>
+              </p>
+              <p>Validate one HTTP(S) URL returned by EAS Hosting.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-utils-resolveeasprocessenvironmentasync-ts"
+          class="view"
+          data-view="src/utils/resolveEasProcessEnvironmentAsync.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/utils/resolveEasProcessEnvironmentAsync.ts</h2>
+            <article
+              class="item"
+              data-search="resolveEasProcessEnvironmentAsync src/utils/resolveEasProcessEnvironmentAsync.ts Resolve an optional EAS token credential into a child-process environment without leaking it."
+            >
+              <h3>resolveEasProcessEnvironmentAsync</h3>
+              <p class="muted"><code>src/utils/resolveEasProcessEnvironmentAsync.ts:13:1</code></p>
+              <p>
+                Resolve an optional EAS token credential into a child-process environment without
+                leaking it.
+              </p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-utils-runeasprocessasync-ts"
+          class="view"
+          data-view="src/utils/runEasProcessAsync.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/utils/runEasProcessAsync.ts</h2>
+            <article
+              class="item"
+              data-search="runEasProcessAsync src/utils/runEasProcessAsync.ts Execute one provider-owned process and capture stdout, stderr, and its exit code."
+            >
+              <h3>runEasProcessAsync</h3>
+              <p class="muted"><code>src/utils/runEasProcessAsync.ts:6:14</code></p>
+              <p>
+                Execute one provider-owned process and capture stdout, stderr, and its exit code.
+              </p>
+            </article>
+          </section>
+        </section>
       </main>
     </div>
     <script>

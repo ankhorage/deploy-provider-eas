@@ -66,33 +66,25 @@
   "readmeCli": null,
   "readmeConfig": null,
   "config": null,
-  "entrypoints": [
-    "src/deployProviderEas.ts"
-  ],
+  "entrypoints": ["src/deployProviderEas.ts"],
   "modules": [
     {
       "path": "paradox.config.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "default"
-      ]
+      "exports": ["default"]
     },
     {
       "path": "src/deployProviderEas.test.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/deployProviderEas.ts"
-      ],
+      "dependencies": ["src/deployProviderEas.ts"],
       "exports": []
     },
     {
       "path": "src/deployProviderEas.ts",
       "isEntrypoint": true,
       "dependencies": [],
-      "exports": [
-        "createEasDeploymentProvider"
-      ]
+      "exports": ["createEasDeploymentProvider"]
     },
     {
       "path": "src/features/android-build/adapters/outbound/createEasAndroidBuilder.test.ts",
@@ -111,9 +103,7 @@
         "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
         "src/types/process.ts"
       ],
-      "exports": [
-        "createEasAndroidBuilder"
-      ]
+      "exports": ["createEasAndroidBuilder"]
     },
     {
       "path": "src/features/android-build/application/use-cases/buildAndroidWithEasAsync.ts",
@@ -123,9 +113,7 @@
         "src/types/process.ts",
         "src/utils/resolveEasProcessEnvironmentAsync.ts"
       ],
-      "exports": [
-        "buildAndroidWithEasAsync"
-      ]
+      "exports": ["buildAndroidWithEasAsync"]
     },
     {
       "path": "src/features/android-build/application/use-cases/inspectEasAndroidBuildAsync.ts",
@@ -135,27 +123,19 @@
         "src/types/process.ts",
         "src/utils/resolveEasProcessEnvironmentAsync.ts"
       ],
-      "exports": [
-        "inspectEasAndroidBuildAsync"
-      ]
+      "exports": ["inspectEasAndroidBuildAsync"]
     },
     {
       "path": "src/features/android-build/utils/parseEasAndroidBuild.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "parseEasAndroidBuild"
-      ]
+      "exports": ["parseEasAndroidBuild"]
     },
     {
       "path": "src/features/android-build/utils/parseEasAndroidConfig.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/android.ts"
-      ],
-      "exports": [
-        "parseEasAndroidConfig"
-      ]
+      "dependencies": ["src/types/android.ts"],
+      "exports": ["parseEasAndroidConfig"]
     },
     {
       "path": "src/features/ios-build/adapters/outbound/createEasIosBuilder.test.ts",
@@ -174,9 +154,7 @@
         "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
         "src/types/process.ts"
       ],
-      "exports": [
-        "createEasIosBuilder"
-      ]
+      "exports": ["createEasIosBuilder"]
     },
     {
       "path": "src/features/ios-build/application/use-cases/buildIosWithEasAsync.ts",
@@ -186,9 +164,7 @@
         "src/types/process.ts",
         "src/utils/resolveEasProcessEnvironmentAsync.ts"
       ],
-      "exports": [
-        "buildIosWithEasAsync"
-      ]
+      "exports": ["buildIosWithEasAsync"]
     },
     {
       "path": "src/features/ios-build/application/use-cases/inspectEasIosBuildAsync.ts",
@@ -198,27 +174,19 @@
         "src/types/process.ts",
         "src/utils/resolveEasProcessEnvironmentAsync.ts"
       ],
-      "exports": [
-        "inspectEasIosBuildAsync"
-      ]
+      "exports": ["inspectEasIosBuildAsync"]
     },
     {
       "path": "src/features/ios-build/utils/parseEasIosBuild.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "parseEasIosBuild"
-      ]
+      "exports": ["parseEasIosBuild"]
     },
     {
       "path": "src/features/ios-build/utils/parseEasIosConfig.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/ios.ts"
-      ],
-      "exports": [
-        "parseEasIosConfig"
-      ]
+      "dependencies": ["src/types/ios.ts"],
+      "exports": ["parseEasIosConfig"]
     },
     {
       "path": "src/features/provider-registration/composition/createEasDeploymentProvider.ts",
@@ -230,9 +198,7 @@
         "src/features/web-publication/adapters/outbound/createEasWebPublisher.ts",
         "src/utils/runEasProcessAsync.ts"
       ],
-      "exports": [
-        "createEasDeploymentProvider"
-      ]
+      "exports": ["createEasDeploymentProvider"]
     },
     {
       "path": "src/features/setup/adapters/outbound/createEasSetupAdapter.test.ts",
@@ -246,13 +212,8 @@
     {
       "path": "src/features/setup/adapters/outbound/createEasSetupAdapter.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/process.ts",
-        "src/utils/resolveEasProcessEnvironmentAsync.ts"
-      ],
-      "exports": [
-        "createEasSetupAdapter"
-      ]
+      "dependencies": ["src/types/process.ts", "src/utils/resolveEasProcessEnvironmentAsync.ts"],
+      "exports": ["createEasSetupAdapter"]
     },
     {
       "path": "src/features/web-publication/adapters/outbound/createEasWebPublisher.test.ts",
@@ -271,62 +232,43 @@
         "src/types/process.ts",
         "src/utils/resolveEasProcessEnvironmentAsync.ts"
       ],
-      "exports": [
-        "createEasWebPublisher"
-      ]
+      "exports": ["createEasWebPublisher"]
     },
     {
       "path": "src/features/web-publication/utils/parseEasWebPublication.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "parseEasWebPublication"
-      ]
+      "exports": ["parseEasWebPublication"]
     },
     {
       "path": "src/types/android.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "EasAndroidConfigSnapshot"
-      ]
+      "exports": ["EasAndroidConfigSnapshot"]
     },
     {
       "path": "src/types/ios.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "EasIosConfigSnapshot"
-      ]
+      "exports": ["EasIosConfigSnapshot"]
     },
     {
       "path": "src/types/process.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "EasProcessRequest",
-        "EasProcessResult",
-        "EasProcessRunner"
-      ]
+      "exports": ["EasProcessRequest", "EasProcessResult", "EasProcessRunner"]
     },
     {
       "path": "src/utils/resolveEasProcessEnvironmentAsync.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": [
-        "EasProcessEnvironmentResult",
-        "resolveEasProcessEnvironmentAsync"
-      ]
+      "exports": ["EasProcessEnvironmentResult", "resolveEasProcessEnvironmentAsync"]
     },
     {
       "path": "src/utils/runEasProcessAsync.ts",
       "isEntrypoint": false,
-      "dependencies": [
-        "src/types/process.ts"
-      ],
-      "exports": [
-        "runEasProcessAsync"
-      ]
+      "dependencies": ["src/types/process.ts"],
+      "exports": ["runEasProcessAsync"]
     }
   ],
   "exports": [
@@ -342,9 +284,7 @@
         "line": 14,
         "column": 1
       },
-      "exportPaths": [
-        "src/deployProviderEas.ts"
-      ],
+      "exportPaths": ["src/deployProviderEas.ts"],
       "relatedSymbols": [],
       "signatures": [
         {
