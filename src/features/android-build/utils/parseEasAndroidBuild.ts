@@ -9,7 +9,7 @@ export function parseEasAndroidBuild(
   expectedProfile: string,
 ): AndroidBuildArtifact | null {
   if (!Array.isArray(value) || value.length !== 1) return null;
-  const [build] = value;
+  const build: unknown = value.at(0);
   if (!isRecord(build)) return null;
   if (build.status !== 'FINISHED' || build.platform !== 'ANDROID') return null;
   if (!isNonEmptyString(build.id) || build.buildProfile !== expectedProfile) return null;
