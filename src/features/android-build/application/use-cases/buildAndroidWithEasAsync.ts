@@ -50,9 +50,7 @@ function runAndroidBuildAsync(
 }
 
 /*** Map an EAS Android build process failure to the provider-neutral result contract. */
-function createAndroidBuildFailure(
-  stderr: string,
-): DeploymentProviderResult<AndroidBuildArtifact> {
+function createAndroidBuildFailure(stderr: string): DeploymentProviderResult<AndroidBuildArtifact> {
   const lower = stderr.toLowerCase();
   const signingRequired = lower.includes('keystore') || lower.includes('credential');
   return signingRequired
