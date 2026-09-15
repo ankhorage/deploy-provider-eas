@@ -29,8 +29,8 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/deployProviderEas.d.ts",
-      "import": "./dist/deployProviderEas.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
     "./package.json": "./package.json"
   },
