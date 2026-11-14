@@ -13,24 +13,14 @@
     "Does not own deployment orchestration or cross-provider release policy.",
     "Does not implement Google Play or App Store Connect deployment providers."
   ],
-  "audience": [
-    "Applications and deployment tooling that select an EAS provider."
-  ],
-  "useCases": [
-    "Compose EAS-backed application deployment."
-  ],
+  "audience": ["Applications and deployment tooling that select an EAS provider."],
+  "useCases": ["Compose EAS-backed application deployment."],
   "architecture": {
     "role": "An outbound deployment-provider adapter with an explicit composition entrypoint.",
-    "invariants": [
-      "EAS-specific behavior remains behind the provider boundary."
-    ]
+    "invariants": ["EAS-specific behavior remains behind the provider boundary."]
   },
   "constraints": {
-    "platforms": [
-      "Expo Application Services"
-    ],
-    "limitations": [
-      "Only EAS-backed deployment is provided."
-    ]
+    "platforms": ["Expo Application Services"],
+    "limitations": ["Only EAS-backed deployment is provided."]
   }
 }
